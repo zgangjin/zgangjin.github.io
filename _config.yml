@@ -42,10 +42,10 @@ ga:
 # 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
 # Miscellaneous
 google_analytics: ''
-favicon: /img/headimg_dl.jpg
+favicon: img/headimg_dl.jpg
 
 #你的头像url
-avatar:/img/headimg_dl.jpg;
+avatar:img/headimg_dl.jpg;
 
 permalink: /:year/:month/:title/
 # Format
