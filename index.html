@@ -248,6 +248,82 @@
 
 
   
+    <article id="post-2012-02-15-tanchishe" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/02/15/2012-02-15-tanchishe/">Html5学习笔记——canvas贪吃蛇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　先说下大概思路：<br>  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，<br><!--查看全部--><br>代码：这里方块的大小为20<em>20；<br>    var bx=Math.floor((Math.random()</em>29)+1)<em>20;<br>    var by=Math.floor(Math.random()</em>14+1)*20;<br>然后后就是判断相交和位置:<br>  相交这里用的是判断两个方块的坐标完全重合即为相交。<br>  位置，用一个数组记录起蛇头所走过的坐标但不要会记下来设定一个数组的长度限制，每相交一次此限制长度加1<br>然后蛇身的坐标用此数组里面记的坐标。跟着蛇头一起刷新。<br>下面为实现全部html5代码：<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
+<html xmlns="http://www.w3.org/1999/xhtml"><br><head><br><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br><title>蛇</title><br></head><br><br><body><br><canvas id="Mycanvas" width="600" height="300"><p>你的电脑不支持本页面</p></canvas><br><script><br>    var canvas=document.getElementById(‘Mycanvas’);<br>    var cantext=canvas.getContext(‘2d’);<br>    var ax=0;<br>    var ay=0;<br><br>    //键盘各个方向的速度；<br>    var uv=0;<br>    var dv=0;<br>    var lv=0;<br>    var rv=0;<br><br>    var arrcoord=[];<br><br>    var cx=0;<br>    var cy=0;<br><br>    //禁止反方向运行；<br>    var xboo=true;<br>    var yboo=true;<br><br>    var mainlenght=1;<br>    var overboo=true;<br><br>    var bx=Math.floor((Math.random()<em>29)+1)</em>20;<br>    var by=Math.floor(Math.random()<em>14+1)</em>20;<br>    window.addEventListener(‘keydown’,mdown,true);<br>    enterframe();<br>    function enterframe(){<br>        cantext.clearRect(0,0,canvas.width,canvas.height);<br>        cantext.fillStyle=’#999999’;<br>        cantext.fillRect(0,0,canvas.width,canvas.height);<br>        cantext.fillStyle=’#348943’;<br>        arrcoord.push([ax,ay]);<br>        if(arrcoord.length&gt;=(mainlenght+1))<br>        {<br>            arrcoord.shift();<br>        }<br>        drawlenght();<br>        draw();<br>        gamevoer();<br>        ax+=lv+rv;<br>        ay+=uv+dv;<br>        //cantext.fill();<br>        if(ax==bx &amp;&amp; ay==by)<br>        {<br>            mainlenght++;<br>            bx=Math.floor((Math.random()<em>29)+1)</em>20;<br>            by=Math.floor(Math.random()<em>14+1)</em>20;<br><br>        }<br><br>        if(overboo)<br>        {<br>            setTimeout(enterframe,200);<br>        }<br>    }<br><br>    function draw(){<br>        cantext.fillRect(bx,by,20,20);<br>    }<br>    //键盘控制；<br>    function mdown(e){<br>        var md=e.keyCode;<br>        switch(md)<br>        {<br>            case 37:<br>            if(xboo)<br>            {<br>                uv=0;<br>                dv=0;<br>                lv=-20;<br>                rv=0;<br>                xboo=false;<br>                yboo=true;<br>            }<br>            break;<br>            case 39:<br>            if(xboo)<br>            {<br>                uv=0;<br>                dv=0;<br>                lv=0;<br>                rv=20;<br>                xboo=false;<br>                yboo=true;<br>            }<br>            break;<br>            case 38:<br>            if(yboo)<br>            {<br>                uv=-20;<br>                dv=0;<br>                lv=0;<br>                rv=0;<br>                xboo=true;<br>                yboo=false;<br>            }<br>            break;<br>            case 40:<br>            if(yboo)<br>            {<br>                uv=0;<br>                dv=20;<br>                lv=0;<br>                rv=0;<br>                xboo=true;<br>                yboo=false;<br>            }<br>            break;<br>        }<br><br>    }<br><br>    function drawlenght(){<br>            for(var i=0;i<mainlenght;i++)
+            {
+                cantext.beginPath();
+
+                cantext.fillRect(arrcoord[i][0],arrcoord[i][1],20,20);
+                cantext.closePath()
+            }
+    }
+
+    function gamevoer(){
+        if(arrcoord.length>4)<br>        {<br>            for(var i=3;i<arrcoord.length;i++)
+            {
+                if(arrcoord[0][0]==arrcoord[i][0] && arrcoord[0][1]==arrcoord[i][1])
+                {
+                    overboo=false;
+                    alert('⊙﹏⊙游戏结束');
+                }
+            }
+        }
+        if(arrcoord[0][0]<0 || arrcoord[0][0]> canvas.width || arrcoord[0][1]<0 || arrcoord[0][1]>canvas.height)<br>        {<br>                overboo=false;<br>                alert(‘⊙﹏⊙游戏结束’);<br>        }<br>    }<br></script><br></body><br></html>
+
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2012/02/15/2012-02-15-tanchishe/" class="archive-article-date">
+  	<time datetime="2012-02-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2012-02-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
   
 
 
@@ -309,7 +385,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+    				<a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a>
     			</div>
     	</section>
     

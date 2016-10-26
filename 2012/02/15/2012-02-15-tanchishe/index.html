@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://072322.top">
-  <title>Git教程1 | zgangjin</title>
+  <title>Html5学习笔记——canvas贪吃蛇 | zgangjin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
+  <meta name="description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，代码：这里方块的大小为2020；    var bx=Math.floor((Math.random()29)+1)20;    var by=Math.floor(Math.random()14+1)*20;然后后就是判断相交和位">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git教程1">
-<meta property="og:url" content="http://072322.top/2016/07/13/2016-07-13-GitTutorial/index.html">
+<meta property="og:title" content="Html5学习笔记——canvas贪吃蛇">
+<meta property="og:url" content="http://072322.top/2012/02/15/2012-02-15-tanchishe/index.html">
 <meta property="og:site_name" content="zgangjin">
-<meta property="og:description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
-<meta property="og:updated_time" content="2016-10-26T08:22:26.255Z">
+<meta property="og:description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，代码：这里方块的大小为2020；    var bx=Math.floor((Math.random()29)+1)20;    var by=Math.floor(Math.random()14+1)*20;然后后就是判断相交和位">
+<meta property="og:updated_time" content="2016-10-26T09:47:49.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git教程1">
-<meta name="twitter:description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
+<meta name="twitter:title" content="Html5学习笔记——canvas贪吃蛇">
+<meta name="twitter:description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，代码：这里方块的大小为2020；    var bx=Math.floor((Math.random()29)+1)20;    var by=Math.floor(Math.random()14+1)*20;然后后就是判断相交和位">
   
     <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
   
@@ -144,7 +141,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2016-07-13-GitTutorial" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2012-02-15-tanchishe" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +151,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Git教程1
+      Html5学习笔记——canvas贪吃蛇
     </h1>
   
 
@@ -162,63 +159,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。</p>
-<p>　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：<a href="http://www.worldhello.net/2012/04/12/why-git-is-better-than-svn.html" target="_blank" rel="external">为什么Git比SVN好</a>。我使用的是Mac，Mac上没自带Git环境，但是作为iOS开发者，我安装Xcode的时候，Xcode里是有自带Git的，所以我不需要考虑怎么去安装Git了。          </p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><a id="more"></a>
-<p><strong>在Mac OS X上安装Git</strong>      </p>
-<p>提供两种方法参考：      </p>
-<blockquote>
-<p>1、通过homebrew安装Git，具体方法请参考<a href="http://brew.sh/" target="_blank" rel="external">homebrew的文档</a><br>2、直接从AppStore安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode。     </p>
-</blockquote>
-<p><strong>在Windows上安装Git</strong>      </p>
-<blockquote>
-<p>从<a href="https://git-for-windows.github.io" target="_blank" rel="external">https://git-for-windows.github.io</a> 下载，然后按默认选项安装即可，安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
-</blockquote>
-<h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><p>安装完成后，还需要最后一步设置，在命令行输入：</p>
-<blockquote>
-<ul>
-<li>$ git config –global user.name “Your Name”</li>
-<li>$ git config –global user.email “email@example.com”</li>
-</ul>
-</blockquote>
-<p>“Your Name”： 是每次提交时所显示的用户名，因为Git是分布式版本控制系统，当我们push到远端时，就需要区分每个提交记录具体是谁提交的，这个”Your Name”就是最好的区分。          </p>
-<p>“email@example.com”： 是你远端仓库的email       </p>
-<p>–global：用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然我们也可以对某个仓库指定不同的用户名和Email地址。         </p>
-<h3 id="开始使用-建立仓库："><a href="#开始使用-建立仓库：" class="headerlink" title="开始使用-建立仓库："></a>开始使用-建立仓库：</h3><p>你在目标文件夹下使命令：    </p>
-<blockquote>
-<ul>
-<li>git init  （创建.git文件）      </li>
-</ul>
-</blockquote>
-<p>就会创建一个 <code>.git</code> 隐藏文件，相当于已经建立了一个本地仓库。</p>
-<p><strong>添加到暂存区：</strong>      </p>
-<blockquote>
-<ul>
-<li>git add .   （全部添加到暂存区）    </li>
-<li>git commit -m ‘ first commit’  （提交暂存区的记录到本地仓库）     </li>
-</ul>
-</blockquote>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>git branc 查看时如出现</p>
-<blockquote>
-<ul>
-<li>(HEAD detached at analytics_v2)   </li>
-<li>dev</li>
-<li>master</li>
-</ul>
-</blockquote>
-<p>代表现在已经进入一个临时的HEAD，可以使用 <code>git checkout -b temp</code> 创建一个 temp branch，这样临时HEAD上修改的东西就不会被丢掉了。<br>然后切换到 dev 分支上，在使用 git branch merge temp，就可以把 temp 分支上的代码合并到 dev 上了。</p>
+        <p>　先说下大概思路：<br>  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，<br><!--查看全部--><br>代码：这里方块的大小为20<em>20；<br>    var bx=Math.floor((Math.random()</em>29)+1)<em>20;<br>    var by=Math.floor(Math.random()</em>14+1)*20;<br>然后后就是判断相交和位置:<br>  相交这里用的是判断两个方块的坐标完全重合即为相交。<br>  位置，用一个数组记录起蛇头所走过的坐标但不要会记下来设定一个数组的长度限制，每相交一次此限制长度加1<br>然后蛇身的坐标用此数组里面记的坐标。跟着蛇头一起刷新。<br>下面为实现全部html5代码：<br>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
+<html xmlns="http://www.w3.org/1999/xhtml"><br><head><br><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br><title>蛇</title><br></head><br><br><body><br><canvas id="Mycanvas" width="600" height="300"><p>你的电脑不支持本页面</p></canvas><br><script><br>    var canvas=document.getElementById(‘Mycanvas’);<br>    var cantext=canvas.getContext(‘2d’);<br>    var ax=0;<br>    var ay=0;<br><br>    //键盘各个方向的速度；<br>    var uv=0;<br>    var dv=0;<br>    var lv=0;<br>    var rv=0;<br><br>    var arrcoord=[];<br><br>    var cx=0;<br>    var cy=0;<br><br>    //禁止反方向运行；<br>    var xboo=true;<br>    var yboo=true;<br><br>    var mainlenght=1;<br>    var overboo=true;<br><br>    var bx=Math.floor((Math.random()<em>29)+1)</em>20;<br>    var by=Math.floor(Math.random()<em>14+1)</em>20;<br>    window.addEventListener(‘keydown’,mdown,true);<br>    enterframe();<br>    function enterframe(){<br>        cantext.clearRect(0,0,canvas.width,canvas.height);<br>        cantext.fillStyle=’#999999’;<br>        cantext.fillRect(0,0,canvas.width,canvas.height);<br>        cantext.fillStyle=’#348943’;<br>        arrcoord.push([ax,ay]);<br>        if(arrcoord.length&gt;=(mainlenght+1))<br>        {<br>            arrcoord.shift();<br>        }<br>        drawlenght();<br>        draw();<br>        gamevoer();<br>        ax+=lv+rv;<br>        ay+=uv+dv;<br>        //cantext.fill();<br>        if(ax==bx &amp;&amp; ay==by)<br>        {<br>            mainlenght++;<br>            bx=Math.floor((Math.random()<em>29)+1)</em>20;<br>            by=Math.floor(Math.random()<em>14+1)</em>20;<br><br>        }<br><br>        if(overboo)<br>        {<br>            setTimeout(enterframe,200);<br>        }<br>    }<br><br>    function draw(){<br>        cantext.fillRect(bx,by,20,20);<br>    }<br>    //键盘控制；<br>    function mdown(e){<br>        var md=e.keyCode;<br>        switch(md)<br>        {<br>            case 37:<br>            if(xboo)<br>            {<br>                uv=0;<br>                dv=0;<br>                lv=-20;<br>                rv=0;<br>                xboo=false;<br>                yboo=true;<br>            }<br>            break;<br>            case 39:<br>            if(xboo)<br>            {<br>                uv=0;<br>                dv=0;<br>                lv=0;<br>                rv=20;<br>                xboo=false;<br>                yboo=true;<br>            }<br>            break;<br>            case 38:<br>            if(yboo)<br>            {<br>                uv=-20;<br>                dv=0;<br>                lv=0;<br>                rv=0;<br>                xboo=true;<br>                yboo=false;<br>            }<br>            break;<br>            case 40:<br>            if(yboo)<br>            {<br>                uv=0;<br>                dv=20;<br>                lv=0;<br>                rv=0;<br>                xboo=true;<br>                yboo=false;<br>            }<br>            break;<br>        }<br><br>    }<br><br>    function drawlenght(){<br>            for(var i=0;i<mainlenght;i++)
+            {
+                cantext.beginPath();
+
+                cantext.fillRect(arrcoord[i][0],arrcoord[i][1],20,20);
+                cantext.closePath()
+            }
+    }
+
+    function gamevoer(){
+        if(arrcoord.length>4)<br>        {<br>            for(var i=3;i<arrcoord.length;i++)
+            {
+                if(arrcoord[0][0]==arrcoord[i][0] && arrcoord[0][1]==arrcoord[i][1])
+                {
+                    overboo=false;
+                    alert('⊙﹏⊙游戏结束');
+                }
+            }
+        }
+        if(arrcoord[0][0]<0 || arrcoord[0][0]> canvas.width || arrcoord[0][1]<0 || arrcoord[0][1]>canvas.height)<br>        {<br>                overboo=false;<br>                alert(‘⊙﹏⊙游戏结束’);<br>        }<br>    }<br></script><br></body><br></html>
+
+
+
+
+
+
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/13/2016-07-13-GitTutorial/" class="archive-article-date">
-  	<time datetime="2016-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-13</time>
+      <a href="/2012/02/15/2012-02-15-tanchishe/" class="archive-article-date">
+  	<time datetime="2012-02-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2012-02-15</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
 	</div>
 
       
@@ -231,20 +210,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/15/2016-07-15-Codeless/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/13/2016-07-13-GitTutorial/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          老司机带你剖析无码统计
+          Git教程1
         
       </div>
     </a>
   
-  
-    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
