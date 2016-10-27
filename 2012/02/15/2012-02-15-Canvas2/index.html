@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://072322.top">
-  <title>[转载]Git教程1 | zgangjin</title>
+  <title>HTML5 Canvas(画布)教程 – 图像处理 | zgangjin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
+  <meta name="description" content="Canvas 标记很多年前就被当作一个新的 HTML 标记成员加入到了 HTML5 标准中。在此之前，人们要想实现动态的网页应用，只能借助于第三方的插件，比如 Flash 或 Java，而引入了 Canvas 标记后，人们直接打通了通往神奇的动态应用网页的大门。本教程内容只覆盖了一小部分、但却是非常重要的 canvas 标记的应用功能——图像显示和处理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[转载]Git教程1">
-<meta property="og:url" content="http://072322.top/2016/07/13/2016-07-13-GitTutorial/index.html">
+<meta property="og:title" content="HTML5 Canvas(画布)教程 – 图像处理">
+<meta property="og:url" content="http://072322.top/2012/02/15/2012-02-15-Canvas2/index.html">
 <meta property="og:site_name" content="zgangjin">
-<meta property="og:description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
-<meta property="og:updated_time" content="2016-10-26T10:01:11.557Z">
+<meta property="og:description" content="Canvas 标记很多年前就被当作一个新的 HTML 标记成员加入到了 HTML5 标准中。在此之前，人们要想实现动态的网页应用，只能借助于第三方的插件，比如 Flash 或 Java，而引入了 Canvas 标记后，人们直接打通了通往神奇的动态应用网页的大门。本教程内容只覆盖了一小部分、但却是非常重要的 canvas 标记的应用功能——图像显示和处理。">
+<meta property="og:image" content="http://072322.top/assets/images/Canvas2/img1.png">
+<meta property="og:image" content="http://072322.top/assets/images/Canvas2/img2.png">
+<meta property="og:image" content="http://072322.top/assets/images/Canvas2/img3.png">
+<meta property="og:image" content="http://072322.top/assets/images/Canvas2/img4.png">
+<meta property="og:image" content="http://072322.top/assets/images/Canvas2/img4.png">
+<meta property="og:updated_time" content="2016-10-27T02:01:12.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[转载]Git教程1">
-<meta name="twitter:description" content="介绍　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。
-　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：为什么Git比SVN好。我使用的是Mac，Mac上没自带Gi">
+<meta name="twitter:title" content="HTML5 Canvas(画布)教程 – 图像处理">
+<meta name="twitter:description" content="Canvas 标记很多年前就被当作一个新的 HTML 标记成员加入到了 HTML5 标准中。在此之前，人们要想实现动态的网页应用，只能借助于第三方的插件，比如 Flash 或 Java，而引入了 Canvas 标记后，人们直接打通了通往神奇的动态应用网页的大门。本教程内容只覆盖了一小部分、但却是非常重要的 canvas 标记的应用功能——图像显示和处理。">
+<meta name="twitter:image" content="http://072322.top/assets/images/Canvas2/img1.png">
   
     <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
   
@@ -144,7 +147,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2016-07-13-GitTutorial" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2012-02-15-Canvas2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +157,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [转载]Git教程1
+      HTML5 Canvas(画布)教程 – 图像处理
     </h1>
   
 
@@ -162,64 +165,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>　　Git是做项目的版本管理，你也可以称它们为版本管理工具。假如现在你有一个文件夹，里面可以是项目，也可以是你的个人笔记(如我这个博客)，或者是你的简历、毕业设计等等，都可以使用git来管理。</p>
-<p>　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：<a href="http://www.worldhello.net/2012/04/12/why-git-is-better-than-svn.html" target="_blank" rel="external">为什么Git比SVN好</a>。我使用的是Mac，Mac上没自带Git环境，但是作为iOS开发者，我安装Xcode的时候，Xcode里是有自带Git的，所以我不需要考虑怎么去安装Git了。          </p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><a id="more"></a>
-<p><strong>在Mac OS X上安装Git</strong>      </p>
-<p>提供两种方法参考：      </p>
-<blockquote>
-<p>1、通过homebrew安装Git，具体方法请参考<a href="http://brew.sh/" target="_blank" rel="external">homebrew的文档</a><br>2、直接从AppStore安装Xcode，Xcode集成了Git，不过默认没有安装，你需要运行Xcode。     </p>
-</blockquote>
-<p><strong>在Windows上安装Git</strong>      </p>
-<blockquote>
-<p>从<a href="https://git-for-windows.github.io" target="_blank" rel="external">https://git-for-windows.github.io</a> 下载，然后按默认选项安装即可，安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
-</blockquote>
-<h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><p>安装完成后，还需要最后一步设置，在命令行输入：</p>
+        <p>Canvas 标记很多年前就被当作一个新的 HTML 标记成员加入到了 HTML5 标准中。在此之前，人们要想实现动态的网页应用，只能借助于第三方的插件，比如 Flash 或 Java，而引入了 Canvas 标记后，人们直接打通了通往神奇的动态应用网页的大门。本教程内容只覆盖了一小部分、但却是非常重要的 canvas 标记的应用功能——图像显示和处理。<br><a id="more"></a></p>
+<h3 id="图像来源"><a href="#图像来源" class="headerlink" title="图像来源"></a>图像来源</h3><p>最常见的在 canvas 上画图的方法是使用 Javascript Image 对象。所支持的来源图片格式依赖于浏览器的支持，然而，一些典型的图片格式(png，jpg，gif 等)基本上都没有问题。<br>图片可以从 DOM 中已经加载的元素中抓取，也可以按需即时创建。<br>// 抓取页面上已有的图片。<br>    var myImage = document.getElementById (‘myimageid’);// 或创建一个新图片。<br>    myImage = new Image ();<br>    myImage.src = ‘image.png’;</p>
+<p>大多数支持 canvas 标记的浏览器的当前版本中，当图片还没有加载完成时，如果你要去画它，结果是什么事情都不会发生。也就是说，如果你想画一个图片，你需要等它完全加载。你可以使用图片对象的 onload 函数来进行判断。<br>    // Create an image.<br>    myImage = new Image ();<br>    myImage.onload = function () {<br>    // Draw image.<br>    }<br>    myImage.src = ‘image.png’;</p>
+<p>在下面的所有例子中，我们的图片源将会使用这个256×256尺寸的大猩猩。<br><img src="/assets/images/Canvas2/img1.png" width="256" height="256"><br>大猩猩图片源</p>
+<h3 id="基本绘画"><a href="#基本绘画" class="headerlink" title="基本绘画"></a>基本绘画</h3><p>在最基本的画图操作中，你需要的只是希望图像出现处的位置(x和y坐标)。图像的位置是相对于其左上角来判断的。使用这种方法，图像可以简单的以其原尺寸被画在画布上。<br>    drawImage (image, x, y)<br>    var canvas = document.getElementById (‘myCanvas’);<br>    var ctx = canvas.getContext (’2d’);ctx.drawImage (myImage, 50, 50);<br>    ctx.drawImage (myImage, 125, 125);<br>    ctx.drawImage (myImage, 210, 210);<br><img src="/assets/images/Canvas2/img2.png" width="514" height="514"> </p>
+<h3 id="缩放及调整尺寸"><a href="#缩放及调整尺寸" class="headerlink" title="缩放及调整尺寸"></a>缩放及调整尺寸</h3><p>改变图像的尺寸，你需要使用重载的 drawImage 函数，提供给它希望的宽度和高度参数。<br>    drawImage (image, x, y, width, height)<br>    var canvas = document.getElementById (‘myCanvas’);<br>    var ctx = canvas.getContext (’2d’);ctx.drawImage (myImage, 50, 50, 100, 100);<br>    ctx.drawImage (myImage, 125, 125, 200, 50);<br>    ctx.drawImage (myImage, 210, 210, 500, 500);</p>
+<p>这个例子演示了如何画一个比原图小的图像，一个不同长宽比的图像和一个比原图大的图像的方法。<br><img src="/assets/images/Canvas2/img3.png" width="514" height="514"> </p>
+<h3 id="图像裁剪"><a href="#图像裁剪" class="headerlink" title="图像裁剪"></a>图像裁剪</h3><p>最后一个 drawImage 方法的功用是对图像进行裁剪。</p>
 <blockquote>
 <ul>
-<li>$ git config –global user.name “Your Name”</li>
-<li>$ git config –global user.email “email@example.com”</li>
+<li>drawImage (image,sourceX,sourceY,sourceWidth,sourceHeight,destX,destY,destWidth,destHeight)</li>
 </ul>
 </blockquote>
-<p>“Your Name”： 是每次提交时所显示的用户名，因为Git是分布式版本控制系统，当我们push到远端时，就需要区分每个提交记录具体是谁提交的，这个”Your Name”就是最好的区分。          </p>
-<p>“email@example.com”： 是你远端仓库的email       </p>
-<p>–global：用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然我们也可以对某个仓库指定不同的用户名和Email地址。         </p>
-<h3 id="开始使用-建立仓库："><a href="#开始使用-建立仓库：" class="headerlink" title="开始使用-建立仓库："></a>开始使用-建立仓库：</h3><p>你在目标文件夹下使命令：    </p>
-<blockquote>
-<ul>
-<li>git init  （创建.git文件）      </li>
-</ul>
-</blockquote>
-<p>就会创建一个 <code>.git</code> 隐藏文件，相当于已经建立了一个本地仓库。</p>
-<p><strong>添加到暂存区：</strong>      </p>
-<blockquote>
-<ul>
-<li>git add .   （全部添加到暂存区）    </li>
-<li>git commit -m ‘ first commit’  （提交暂存区的记录到本地仓库）     </li>
-</ul>
-</blockquote>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>git branc 查看时如出现</p>
-<blockquote>
-<ul>
-<li>(HEAD detached at analytics_v2)   </li>
-<li>dev</li>
-<li>master</li>
-</ul>
-</blockquote>
-<p>代表现在已经进入一个临时的HEAD，可以使用 <code>git checkout -b temp</code> 创建一个 temp branch，这样临时HEAD上修改的东西就不会被丢掉了。<br>然后切换到 dev 分支上，在使用 git branch merge temp，就可以把 temp 分支上的代码合并到 dev 上了。</p>
-<p>原文来自 潘柏信的博客：<a href="http://baixin.io/2016/07/GitTutorial/" target="_blank" rel="external">点击阅读原文</a>     </p>
+<p>参数很多，但基本上你可以把它想成从原图中取出一个矩形区域，然后把它画到画布上目标区域里。<br><img src="/assets/images/Canvas2/img4.png" width="514" height="514"><br>画布裁剪例子<br>    var canvas = document.getElementById (‘myCanvas’);<br>    var ctx = canvas.getContext (’2d’);ctx.drawImage (myImage, 0, 0, 50, 50, 25, 25, 100, 100);<br>    ctx.drawImage (myImage, 125, 125, 100, 100, 125, 125, 150, 150);<br>    ctx.drawImage (myImage, 80, 80, 100, 100, 250, 250, 220, 220);<br><img src="/assets/images/Canvas2/img4.png" width="514" height="514"><br>这些就是 HTML5 中的 canvas (画布)标记里进行绘图和处理图像的基本操作。绘图只是 canvas 能提供的功能之一，将来我们会发布更多的关于这方面的教程，会介绍关于这个标记的更多的特征和功能。如果你有任何的问题和想法，请在下面评论的写出来。<br>收藏分享</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/13/2016-07-13-GitTutorial/" class="archive-article-date">
-  	<time datetime="2016-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-13</time>
+      <a href="/2012/02/15/2012-02-15-Canvas2/" class="archive-article-date">
+  	<time datetime="2012-02-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2012-02-15</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li></ul>
 	</div>
 
       
@@ -232,18 +203,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/15/2016-07-15-Codeless/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [转载]Git教程1老司机带你剖析无码统计
+          HTML5学习笔记——canvas渐变
         
       </div>
     </a>
   
   
-    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5学习笔记——canvas渐变</div>
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -289,7 +260,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-07-13-GitTutorial" data-title="[转载]Git教程1" data-url="http://072322.top/2016/07/13/2016-07-13-GitTutorial/"></div>
+	<div class="ds-thread" data-thread-key="2012-02-15-Canvas2" data-title="HTML5 Canvas(画布)教程 – 图像处理" data-url="http://072322.top/2012/02/15/2012-02-15-Canvas2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
