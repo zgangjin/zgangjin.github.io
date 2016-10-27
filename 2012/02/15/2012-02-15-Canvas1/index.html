@@ -16,7 +16,7 @@
 <meta property="og:description" content="HTML4中绘制一个渐变图形并不是一件很容易的事情，往往需要通过大量的JS代码来实现，或者我们会做一张渐变图片通过平铺的方式在实现渐变。 前者需要写大量的JS代码，而后者会降低网页的加载速度，那么我们有没有一种更好地方式来实现网页渐变的效果呢？在HTML4中，我们似乎找不到更好的方 法了。　　但是，在HTML5中的canvas属性却为我们提供了很好的解决方案，利用canvas在Javascrip">
 <meta property="og:image" content="http://072322.top/assets/images/Canvas1/img1.png">
 <meta property="og:image" content="http://072322.top/assets/images/Canvas1/img2.png">
-<meta property="og:updated_time" content="2016-10-27T01:50:48.499Z">
+<meta property="og:updated_time" content="2016-10-27T02:16:23.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5学习笔记——canvas渐变">
 <meta name="twitter:description" content="HTML4中绘制一个渐变图形并不是一件很容易的事情，往往需要通过大量的JS代码来实现，或者我们会做一张渐变图片通过平铺的方式在实现渐变。 前者需要写大量的JS代码，而后者会降低网页的加载速度，那么我们有没有一种更好地方式来实现网页渐变的效果呢？在HTML4中，我们似乎找不到更好的方 法了。　　但是，在HTML5中的canvas属性却为我们提供了很好的解决方案，利用canvas在Javascrip">
@@ -162,14 +162,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>　HTML4中绘制一个渐变图形并不是一件很容易的事情，往往需要通过大量的JS代码来实现，或者我们会做一张渐变图片通过平铺的方式在实现渐变。 前者需要写大量的JS代码，而后者会降低网页的加载速度，那么我们有没有一种更好地方式来实现网页渐变的效果呢？在HTML4中，我们似乎找不到更好的方 法了。<br>　　但是，在HTML5中的canvas属性却为我们提供了很好的解决方案，利用canvas在Javascript中一些接口，我们可以很轻易的做出我们想要的渐变效果。<br><a id="more"></a><br>在HTML5中主要有两种渐变方式，一种是沿着直线的渐变方式，我们称之为线性渐变；另一种是从一个点或圆沿着一个圆的半径向四周渐变的方式，我们称之为径向渐变。<br>　　下面分别来介绍这两种的渐变方式。<br>　　1.线性渐变<br>　　在HTML5中，有关于线性渐变的最主要的函数是createLinearGradient(x0,y0,x1,y1) ;<br>　　createLinearGradient(x0,y0,x1,y1)    创建一个沿直线从(x0,y0）到（x1,y1)进行渐变<br>　　我们可以利用createLinearGradient来创建一个线性渐变，我们来指定这个渐变的宽度为400像素，那么我们可以用如下的方式创建：<br>    var a_canvas = document.getElementById(“a”);    //获取canvas元素节点<br>    var context = a_canvas.getContext(“2d”);   //设置canvas元素节点<br>    var my_gradient  =  createLinearGradient(0,0,400,0);   //创建一个线性渐变</p>
-<p>　　由于点（0,0）到点（400,0）是从左到右的，所以我们创建的渐变也会沿水平从左到右。<br>　　有了一个渐变对象之后，我们就需要定义渐变的颜色了，定义渐变的函数有addColor(per,color);<br>　　addColor(per,color);   定义一个渐变颜色， per表示开始渐变位置占渐变区域大小的百分比，为0-1之间的任意值，color为颜色样式。<br>　　那么接下来，我们定义两个渐变颜色，使得渐变区域从黄色到红色进行渐变，代码如下：<br>    my_gradient.addColorStop(0,”#ff0”);    //定义黄色渐变色<br>    my_gradient.addColorStop(1,”#f00”);    //定义红色渐变色</p>
-<p>　　定义完了以后，这些渐变信息都只是存在了内存当中，并没有在canvas中显示出来，要让渐变产生实际的效果，我们需要设置canvas内容的<br>    fillStyle为当前的渐变对象，并且绘制这个图形，比如一个矩形或者一条直线。所以，为了看到渐变效果，我们还需要以下代码：<br>    context.fillStyle = my_gradient;     //设置fillStyle为当前的渐变对象<br>    context.fillRect(0,0,400,300);         //绘制渐变图形</p>
+        <p>　HTML4中绘制一个渐变图形并不是一件很容易的事情，往往需要通过大量的JS代码来实现，或者我们会做一张渐变图片通过平铺的方式在实现渐变。 前者需要写大量的JS代码，而后者会降低网页的加载速度，那么我们有没有一种更好地方式来实现网页渐变的效果呢？在HTML4中，我们似乎找不到更好的方 法了。<br>　　但是，在HTML5中的canvas属性却为我们提供了很好的解决方案，利用canvas在Javascript中一些接口，我们可以很轻易的做出我们想要的渐变效果。<br><a id="more"></a><br>在HTML5中主要有两种渐变方式，一种是沿着直线的渐变方式，我们称之为线性渐变；另一种是从一个点或圆沿着一个圆的半径向四周渐变的方式，我们称之为径向渐变。<br>　　下面分别来介绍这两种的渐变方式。<br>　　1.线性渐变<br>　　在HTML5中，有关于线性渐变的最主要的函数是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createLinearGradient(x0,y0,x1,y1) ;</div><div class="line">　　createLinearGradient(x0,y0,x1,y1)</div></pre></td></tr></table></figure></p>
+<p>   创建一个沿直线从(x0,y0）到（x1,y1)进行渐变<br>　　我们可以利用createLinearGradient来创建一个线性渐变，我们来指定这个渐变的宽度为400像素，那么我们可以用如下的方式创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a_canvas = document.getElementById(&quot;a&quot;);    //获取canvas元素节点</div><div class="line">var context = a_canvas.getContext(&quot;2d&quot;);   //设置canvas元素节点</div><div class="line">var my_gradient  =  createLinearGradient(0,0,400,0);   //创建一个线性渐变</div></pre></td></tr></table></figure></p>
+<p>　　由于点（0,0）到点（400,0）是从左到右的，所以我们创建的渐变也会沿水平从左到右。<br>　　有了一个渐变对象之后，我们就需要定义渐变的颜色了，定义渐变的函数有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">addColor(per,color);</div><div class="line">　　addColor(per,color);</div></pre></td></tr></table></figure></p>
+<p>   定义一个渐变颜色， per表示开始渐变位置占渐变区域大小的百分比，为0-1之间的任意值，color为颜色样式。<br>　　那么接下来，我们定义两个渐变颜色，使得渐变区域从黄色到红色进行渐变，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my_gradient.addColorStop(0,&quot;#ff0&quot;);    //定义黄色渐变色</div><div class="line">my_gradient.addColorStop(1,&quot;#f00&quot;);    //定义红色渐变色</div></pre></td></tr></table></figure></p>
+<p>　　定义完了以后，这些渐变信息都只是存在了内存当中，并没有在canvas中显示出来，要让渐变产生实际的效果，我们需要设置canvas内容的<br>    fillStyle为当前的渐变对象，并且绘制这个图形，比如一个矩形或者一条直线。所以，为了看到渐变效果，我们还需要以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">context.fillStyle = my_gradient;     //设置fillStyle为当前的渐变对象</div><div class="line">context.fillRect(0,0,400,300);         //绘制渐变图形</div></pre></td></tr></table></figure></p>
 <p>　　那么至此，一个线性渐变的图形便绘制出来了，在chrome中运行的结果如下：<br><img src="/assets/images/Canvas1/img1.png" height="383" width="502"> </p>
-<p>　　假如你想实现一个上下的线性渐变的效果，那么你应该在调用createLinearGradient(x0,y0,x1,y1) 创建渐变的时 候保证点（x0,y0),点(x1,y1)连成的直线为竖直直线，也就是x0=x1。当然你也可以实现对角线渐变的效果，只要(x0,y0) (x1,y1)组成一条对角线就可以了。创建上下渐变和对角线渐变的代码如下：<br>var my_gradient = context.createLinearGradient(0,0,0,300);    // 创建上下渐变<br>var my_gradient = context.createLinearGradient(0,0,0,300);    // 创建对角线渐变</p>
-<p>　　2.径向渐变<br>　　在HTML5中，有关于线性渐变的最主要的函数是createRadiaGradient(x0,y0,r0,x1,y1,r1);<br>　　createRadiaGradient(x0,y0,r0,x1,y1,r1)    创建一个沿两个圆之间的锥面绘制渐变。前三个参数代表一个圆心为（x0,y0）半径为r0的开始圆，后三个参数代表圆心为（x1,y1）半径为r1的结束圆。<br>　　首先我们可以利用createLinearGradient来创建一个线性渐变，我们来指定这个渐变的宽度为400像素，那么我们可以用如下的方式创建：<br>var b_canvas = document.getElementById(“b”);     //获取canvas元素节点<br>context = b_canvas.getContext(“2d”);     //设置canvas元素节点<br>//创建一个径向渐变，从圆心为(160,120)半径为20的圆周开始沿着半径向圆心为(160120)半径为200的圆周进行径向渐变<br>my_gradient= context.createRadialGradient(160,120,20, 160,120,200);      </p>
-<p>　　创建完了之后，和线性渐变一样，我们同样需要定义渐变颜色，这一点和线性渐变毫无区别，比如，我们分别定义红色渐变色和蓝色渐变色：<br>my_gradient.addColorStop(0, “#f00”);    //定义红色渐变色<br>my_gradient.addColorStop(1, “#00f”);    //定义蓝色渐变色</p>
-<p>　　同样地，定义完了以后，这些渐变信息都只是存在了内存当中，并没有在canvas中显示出来，要让渐变产生实际的效果，我们需要设置canvas内容的fillStyle为当前的渐变对象，并且绘制这个图形，比如一个矩形，代码如下：<br>context.fillStyle = my_gradient;     //设置fillStyle为当前的渐变对象<br>context.fillRect(0,0,400,300);         //绘制渐变图形</p>
+<p>　　假如你想实现一个上下的线性渐变的效果，那么你应该在调用createLinearGradient(x0,y0,x1,y1) 创建渐变的时 候保证点（x0,y0),点(x1,y1)连成的直线为竖直直线，也就是x0=x1。当然你也可以实现对角线渐变的效果，只要(x0,y0) (x1,y1)组成一条对角线就可以了。创建上下渐变和对角线渐变的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var my_gradient = context.createLinearGradient(0,0,0,300);    // 创建上下渐变</div><div class="line">var my_gradient = context.createLinearGradient(0,0,0,300);    // 创建对角线渐变</div></pre></td></tr></table></figure></p>
+<p>　　2.径向渐变<br>　　在HTML5中，有关于线性渐变的最主要的函数是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createRadiaGradient(x0,y0,r0,x1,y1,r1);</div><div class="line">createRadiaGradient(x0,y0,r0,x1,y1,r1)</div></pre></td></tr></table></figure></p>
+<p>创建一个沿两个圆之间的锥面绘制渐变。前三个参数代表一个圆心为（x0,y0）半径为r0的开始圆，后三个参数代表圆心为（x1,y1）半径为r1的结束圆。<br>　　首先我们可以利用createLinearGradient来创建一个线性渐变，我们来指定这个渐变的宽度为400像素，那么我们可以用如下的方式创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var b_canvas = document.getElementById(&quot;b&quot;);     //获取canvas元素节点</div><div class="line">context = b_canvas.getContext(&quot;2d&quot;);     //设置canvas元素节点</div><div class="line">//创建一个径向渐变，从圆心为(160,120)半径为20的圆周开始沿着半径向圆心为(160120)半径为200的圆周进行径向渐变</div><div class="line">my_gradient= context.createRadialGradient(160,120,20, 160,120,200);</div></pre></td></tr></table></figure></p>
+<p>创建完了之后，和线性渐变一样，我们同样需要定义渐变颜色，这一点和线性渐变毫无区别，比如，我们分别定义红色渐变色和蓝色渐变色：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my_gradient.addColorStop(0, &quot;#f00&quot;);    //定义红色渐变色</div><div class="line">my_gradient.addColorStop(1, &quot;#00f&quot;);    //定义蓝色渐变色</div></pre></td></tr></table></figure></p>
+<p>　　同样地，定义完了以后，这些渐变信息都只是存在了内存当中，并没有在canvas中显示出来，要让渐变产生实际的效果，我们需要设置canvas内容的fillStyle为当前的渐变对象，并且绘制这个图形，比如一个矩形，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">context.fillStyle = my_gradient;     //设置fillStyle为当前的渐变对象</div><div class="line">context.fillRect(0,0,400,300);         //绘制渐变图形</div></pre></td></tr></table></figure></p>
 <p>　　至此，一个径向渐变的图形便绘制出来了，在chrome中运行的结果如下：<br><img src="/assets/images/Canvas1/img2.png" height="275" width="340"><br>　　到此为止，HTML5当中的两种基本的渐变方式就给大家介绍完了。</p>
 
       
@@ -195,20 +198,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/13/2016-07-13-GitTutorial/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          [转载]Git教程1
+          Html5学习笔记——canvas贪吃蛇
         
       </div>
     </a>
   
-  
-    <a href="/2012/02/15/2012-02-15-Canvas2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5 Canvas(画布)教程 – 图像处理</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
