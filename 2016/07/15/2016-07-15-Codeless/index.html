@@ -8,22 +8,19 @@
   <link rel="dns-prefetch" href="http://072322.top">
   <title>[转载]Git教程1老司机带你剖析无码统计 | zgangjin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。
-　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
+  <meta name="description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[转载]Git教程1老司机带你剖析无码统计">
 <meta property="og:url" content="http://072322.top/2016/07/15/2016-07-15-Codeless/index.html">
 <meta property="og:site_name" content="zgangjin">
-<meta property="og:description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。
-　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
+<meta property="og:description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
 <meta property="og:image" content="http://072322.top/assets/images/codeless/image01.png">
 <meta property="og:image" content="http://072322.top/assets/images/codeless/image02.png">
 <meta property="og:image" content="http://072322.top/assets/images/codeless/image03.png">
-<meta property="og:updated_time" content="2016-10-26T10:01:16.381Z">
+<meta property="og:updated_time" content="2016-10-27T02:39:03.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转载]Git教程1老司机带你剖析无码统计">
-<meta name="twitter:description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。
-　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
+<meta name="twitter:description" content="无需开发介入，也可以统计移动App上按钮的点击次数，简称 无码统计 ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。">
 <meta name="twitter:image" content="http://072322.top/assets/images/codeless/image01.png">
   
     <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
@@ -166,10 +163,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>　　无需开发介入，也可以统计移动App上按钮的点击次数，简称 <code>无码统计</code> ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。</p>
-<p>　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。  </p>
-<p>　　在App开发过程中我们应该都有过类似的需求：想统计某些按钮的点击次数。例如，我们开发了一个注册模块，注册流程有些复杂，整个注册功能开发完成后，我们想知道到底有没有用户使用注册功能，而又有多少用户使用？         </p>
-<p>有什么方式能知道呢？<br><a id="more"></a></p>
+        <p>　　无需开发介入，也可以统计移动App上按钮的点击次数，简称 <code>无码统计</code> ，只要是跟App开发相关的同学，相信都对埋点统计有些了解，特别是针对开发人员来说，做代码埋点统计基本上是看不到直接收益也是开发人员最不愿做的一件事，这篇文章讲的就是如何让开发人员摆脱代码埋点的痛苦。<br>　　文章主要分为：使用场景、实现原理、适用范围、使用详情四个模块，不管你是产品，还是开发人员又或者是运营人员都适合读这篇文章。<br><a id="more"></a><br>　　在App开发过程中我们应该都有过类似的需求：想统计某些按钮的点击次数。例如，我们开发了一个注册模块，注册流程有些复杂，整个注册功能开发完成后，我们想知道到底有没有用户使用注册功能，而又有多少用户使用？         </p>
+<p>有什么方式能知道呢？</p>
 <blockquote>
 <ul>
 <li><p>后台看注册系统?<br>　有些麻烦，需要后台去数据库里查看，还要做成数据可视化的才方便看。      </p>
