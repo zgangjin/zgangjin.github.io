@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://072322.top">
-  <title>Html5学习笔记——canvas贪吃蛇 | zgangjin</title>
+  <title>教你上传本地代码到github | zgangjin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，">
+  <meta name="description" content="写点本地上传到github的方法，这里简单的记录一下，感觉用命令更方便点，这里全用命令行来实现，不了解Git命令的可以去了解下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Html5学习笔记——canvas贪吃蛇">
-<meta property="og:url" content="http://072322.top/2012/02/15/2012-02-15-tanchishe/index.html">
+<meta property="og:title" content="教你上传本地代码到github">
+<meta property="og:url" content="http://072322.top/2016/11/15/2012-11-15-gitUpdataGithub /index.html">
 <meta property="og:site_name" content="zgangjin">
-<meta property="og:description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，">
-<meta property="og:updated_time" content="2016-10-27T01:42:24.014Z">
+<meta property="og:description" content="写点本地上传到github的方法，这里简单的记录一下，感觉用命令更方便点，这里全用命令行来实现，不了解Git命令的可以去了解下。">
+<meta property="og:image" content="http://072322.top/assets/images/gitupdata/img1.png">
+<meta property="og:image" content="http://072322.top/assets/images/gitupdata/img2.png">
+<meta property="og:updated_time" content="2016-11-29T10:16:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Html5学习笔记——canvas贪吃蛇">
-<meta name="twitter:description" content="先说下大概思路：  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，">
+<meta name="twitter:title" content="教你上传本地代码到github">
+<meta name="twitter:description" content="写点本地上传到github的方法，这里简单的记录一下，感觉用命令更方便点，这里全用命令行来实现，不了解Git命令的可以去了解下。">
+<meta name="twitter:image" content="http://072322.top/assets/images/gitupdata/img1.png">
   
     <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
   
@@ -141,7 +144,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-2012-02-15-tanchishe" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-2012-11-15-gitUpdataGithub " class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -151,7 +154,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Html5学习笔记——canvas贪吃蛇
+      教你上传本地代码到github
     </h1>
   
 
@@ -159,155 +162,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>　先说下大概思路：<br>  贪吃蛇这个游戏大家都并不陌生，这里就直入主题了，首先是方块的大小，和随机生成的方块的位置，必须保证他们会完全重合。这样才好判断相交，看起来更好看，<br><a id="more"></a><br>代码：这里方块的大小为20<em>20；<br>    var bx=Math.floor((Math.random()</em>29)+1)<em>20;<br>    var by=Math.floor(Math.random()</em>14+1)*20;<br>然后后就是判断相交和位置:<br>  相交这里用的是判断两个方块的坐标完全重合即为相交。<br>  位置，用一个数组记录起蛇头所走过的坐标但不要会记下来设定一个数组的长度限制，每相交一次此限制长度加1<br>然后蛇身的坐标用此数组里面记的坐标。跟着蛇头一起刷新。<br>下面为实现核心代码：<br>    var canvas=document.getElementById(‘Mycanvas’);<br>    var cantext=canvas.getContext(‘2d’);<br>    var ax=0;<br>    var ay=0;</p>
-<pre><code>//键盘各个方向的速度；
-var uv=0;
-var dv=0;
-var lv=0;    
-var rv=0;
+        <p>写点本地上传到github的方法，这里简单的记录一下，感觉用命令更方便点，这里全用命令行来实现，不了解Git命令的可以去了解下。<br><a id="more"></a></p>
+<h4 id="第一步：建立git仓库"><a href="#第一步：建立git仓库" class="headerlink" title="第一步：建立git仓库"></a>第一步：建立git仓库</h4><p>cd到你的本地项目根目录下，执行git命令</p>
+<pre><code>git init
+</code></pre><h4 id="第二步：将项目的所有文件添加到仓库中"><a href="#第二步：将项目的所有文件添加到仓库中" class="headerlink" title="第二步：将项目的所有文件添加到仓库中"></a>第二步：将项目的所有文件添加到仓库中</h4><pre><code>git add .
+</code></pre><p>如果想添加某个特定的文件，只需把.换成特定的文件名即可</p>
+<h4 id="第三步：将add的文件commit到仓库"><a href="#第三步：将add的文件commit到仓库" class="headerlink" title="第三步：将add的文件commit到仓库"></a>第三步：将add的文件commit到仓库</h4><pre><code>git commit -m &quot;注释语句&quot;
+</code></pre><h4 id="第四步：去github上创建自己的Repository，创建页面如下图所示："><a href="#第四步：去github上创建自己的Repository，创建页面如下图所示：" class="headerlink" title="第四步：去github上创建自己的Repository，创建页面如下图所示："></a>第四步：去github上创建自己的Repository，创建页面如下图所示：</h4><p><img src="/assets/images/gitupdata/img1.png" width="888" height="638"><br>点击下面的Create repository，就会进入到类似下面的一个页面，拿到创建的仓库的https地址，红框标示的就是<br><img src="/assets/images/gitupdata/img2.png" width="1221" height="722"> </p>
+<h4 id="第五步：重点来了，将本地的仓库关联到github上"><a href="#第五步：重点来了，将本地的仓库关联到github上" class="headerlink" title="第五步：重点来了，将本地的仓库关联到github上"></a>第五步：重点来了，将本地的仓库关联到github上</h4><pre><code>git remote add origin https://github.com/zgangjin/Babel-Browserify-ES6
+</code></pre><p>后面的https链接地址换成你自己的仓库url地址，也就是上面红框中标出来的地址</p>
+<h3 id="第六步：上传github之前，要先pull一下，执行如下命令："><a href="#第六步：上传github之前，要先pull一下，执行如下命令：" class="headerlink" title="第六步：上传github之前，要先pull一下，执行如下命令："></a>第六步：上传github之前，要先pull一下，执行如下命令：</h3><pre><code>git pull origin master
+</code></pre><h4 id="第七步，也就是最后一步，上传代码到github远程仓库"><a href="#第七步，也就是最后一步，上传代码到github远程仓库" class="headerlink" title="第七步，也就是最后一步，上传代码到github远程仓库"></a>第七步，也就是最后一步，上传代码到github远程仓库</h4><pre><code>git push -u origin master
+</code></pre><p>执行完后，如果没有异常，等待执行完就上传成功了，中间可能会让你输入Username和Password，你只要输入github的账号和密码就行了</p>
 
-var arrcoord=[];
-
-var cx=0;
-var cy=0;
-
-//禁止反方向运行；
-var xboo=true;
-var yboo=true;
-
-var mainlenght=1;
-var overboo=true;    
-
-var bx=Math.floor((Math.random()*29)+1)*20;
-var by=Math.floor(Math.random()*14+1)*20;    
-window.addEventListener(&apos;keydown&apos;,mdown,true);    
-enterframe();
-function enterframe(){
-    cantext.clearRect(0,0,canvas.width,canvas.height);
-    cantext.fillStyle=&apos;#999999&apos;;
-    cantext.fillRect(0,0,canvas.width,canvas.height);
-    cantext.fillStyle=&apos;#348943&apos;;            
-    arrcoord.push([ax,ay]);
-    if(arrcoord.length&gt;=(mainlenght+1))
-    {
-        arrcoord.shift();
-    }
-    drawlenght();
-    draw();    
-    gamevoer();
-    ax+=lv+rv;
-    ay+=uv+dv;
-    //cantext.fill();
-    if(ax==bx &amp;&amp; ay==by)
-    {
-        mainlenght++;
-        bx=Math.floor((Math.random()*29)+1)*20;
-        by=Math.floor(Math.random()*14+1)*20;
-
-    }
-
-    if(overboo)
-    {
-        setTimeout(enterframe,200);
-    }
-}
-
-function draw(){        
-    cantext.fillRect(bx,by,20,20);            
-}
-//键盘控制；
-function mdown(e){
-    var md=e.keyCode;
-    switch(md)
-    {
-        case 37:        
-        if(xboo)
-        {    
-            uv=0;
-            dv=0;
-            lv=-20;    
-            rv=0;
-            xboo=false;
-            yboo=true;
-        }
-        break;
-        case 39:
-        if(xboo)
-        {
-            uv=0;
-            dv=0;
-            lv=0;    
-            rv=20;
-            xboo=false;
-            yboo=true;
-        }
-        break;
-        case 38:
-        if(yboo)
-        {
-            uv=-20;
-            dv=0;
-            lv=0;    
-            rv=0;
-            xboo=true;
-            yboo=false;
-        }
-        break;
-        case 40:
-        if(yboo)
-        {
-            uv=0;
-            dv=20;
-            lv=0;    
-            rv=0;
-            xboo=true;
-            yboo=false;    
-        }
-        break; 
-    }
-
-}
-
-function drawlenght(){
-        for(var i=0;i&lt;mainlenght;i++)
-        {
-            cantext.beginPath();
-
-            cantext.fillRect(arrcoord[i][0],arrcoord[i][1],20,20);
-            cantext.closePath()
-        }
-}
-
-function gamevoer(){
-    if(arrcoord.length&gt;4)
-    {
-        for(var i=3;i&lt;arrcoord.length;i++)
-        {
-            if(arrcoord[0][0]==arrcoord[i][0] &amp;&amp; arrcoord[0][1]==arrcoord[i][1])
-            {
-                overboo=false;
-                alert(&apos;⊙﹏⊙游戏结束&apos;);
-            }
-        }
-    }
-    if(arrcoord[0][0]&lt;0 || arrcoord[0][0]&gt; canvas.width || arrcoord[0][1]&lt;0 || arrcoord[0][1]&gt;canvas.height)
-    {
-            overboo=false;
-            alert(&apos;⊙﹏⊙游戏结束&apos;);
-    }
-}
-</code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2012/02/15/2012-02-15-tanchishe/" class="archive-article-date">
-  	<time datetime="2012-02-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2012-02-15</time>
+      <a href="/2016/11/15/2012-11-15-gitUpdataGithub /" class="archive-article-date">
+  	<time datetime="2016-11-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5/">Html5</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
 	</div>
 
       
@@ -320,15 +198,20 @@ function gamevoer(){
   
 <nav id="article-nav">
   
-    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/29/2016-11-29-Babel+Browserify+ES6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTML5学习笔记——canvas渐变
+          使用Babel和Browserify创建你的ES6项目
         
       </div>
     </a>
   
+  
+    <a href="/2016/07/15/2016-07-15-Codeless/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[转载]Git教程1老司机带你剖析无码统计</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -372,7 +255,7 @@ function gamevoer(){
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2012-02-15-tanchishe" data-title="Html5学习笔记——canvas贪吃蛇" data-url="http://072322.top/2012/02/15/2012-02-15-tanchishe/"></div>
+	<div class="ds-thread" data-thread-key="2012-11-15-gitUpdataGithub " data-title="教你上传本地代码到github" data-url="http://072322.top/2016/11/15/2012-11-15-gitUpdataGithub /"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
