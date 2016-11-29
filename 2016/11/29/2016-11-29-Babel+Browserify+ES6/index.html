@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="JavaScript的发展日新月异，ES6很快就要接管JS了。很多著名的框架像AngularJS 2、React Native已经开始支持ES6了。我们是时候准备拥抱变化了，所以我们应该开始在几乎所有的浏览器支持之前使用ES6码代码了。本文将要介绍如何使用Babel和Browerify来创建项目并且编写能够运行在老版本浏览器上的现代代码。Babel将ES6代码编译为大多数浏览器（包括IE9）支">
 <meta property="og:image" content="http://072322.top/assets/images/es6/list.png">
-<meta property="og:updated_time" content="2016-11-29T06:52:16.000Z">
+<meta property="og:updated_time" content="2016-11-29T07:24:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Babel和Browserify创建你的ES6项目">
 <meta name="twitter:description" content="JavaScript的发展日新月异，ES6很快就要接管JS了。很多著名的框架像AngularJS 2、React Native已经开始支持ES6了。我们是时候准备拥抱变化了，所以我们应该开始在几乎所有的浏览器支持之前使用ES6码代码了。本文将要介绍如何使用Babel和Browerify来创建项目并且编写能够运行在老版本浏览器上的现代代码。Babel将ES6代码编译为大多数浏览器（包括IE9）支">
@@ -163,18 +163,28 @@
       
         <p>　　JavaScript的发展日新月异，ES6很快就要接管JS了。很多著名的框架像AngularJS 2、React Native已经开始支持ES6了。我们是时候准备拥抱变化了，所以我们应该开始在几乎所有的浏览器支持之前使用ES6码代码了。本文将要介绍如何使用Babel和Browerify来创建项目并且编写能够运行在老版本浏览器上的现代代码。Babel将ES6代码编译为大多数浏览器（包括IE9）支持的ES5代码。Browserify可以让我们遵循CommonJS规范书写代码，然后经过包装在浏览器中使用。<br><a id="more"></a></p>
 <h3 id="创建package-json文件"><a href="#创建package-json文件" class="headerlink" title="创建package.json文件"></a>创建package.json文件</h3><p>　　首先，我们看一下我们将要创建的Demo的文件结构。<br><img src="/assets/images/es6/list.png" height="178" width="151"><br>项目的根目录下，有两个文件：Gruntfile.js和package.json，两个文件夹dist和modules。modules文件夹下包括用ES6编写的所有模块，dist文件夹下包含编译和打包后的ES5文件。我没有在文件夹里包含.gitignore文件是因为它只是一个工具文件没什么乱用。<br>现在我们来创建package.json文件，一个标准的package.json包含许多字段，比如description、version、author还有其他神马的，但在这个项目我们只写一些比较重要的。</p>
-<p>package.json内容如下：<br>    {<br>        “name”: “browserify-babel-demo”,<br>        “main”: “dist/module.js”,<br>        “devDependencies”: {<br>            “grunt”: “^0.4.5”,<br>            “babelify”: “^6.1.0”,<br>            “grunt-browserify”: “^3.8.0”,<br>            “grunt-contrib-watch”: “^0.6.1”<br>        }<br>    } </p>
-<p>从上述文件可以看到，项目中使用到的有：  </p>
+<p>package.json内容如下：     </p>
+<pre><code>{
+    &quot;name&quot;: &quot;browserify-babel-demo&quot;,
+    &quot;main&quot;: &quot;dist/module.js&quot;,
+    &quot;devDependencies&quot;: {
+        &quot;grunt&quot;: &quot;^0.4.5&quot;,
+        &quot;babelify&quot;: &quot;^6.1.0&quot;,
+        &quot;grunt-browserify&quot;: &quot;^3.8.0&quot;,
+        &quot;grunt-contrib-watch&quot;: &quot;^0.6.1&quot;
+    }
+}
+</code></pre><p>从上述文件可以看到，项目中使用到的有：  </p>
 <blockquote>
 <ul>
 <li>Grunt JavaScript任务构建工具</li>
 <li>grunt-browserify Grunt browserify任务</li>
 <li>babelify Browserify的babel转换器</li>
-<li><p>grunt-contrib-watch 监听JavaScript的每次改变然后选择性的执行任务，在我们的例子中，文件每次改变都要执行Browserify任务。     </p>
-<p>devDependencies中的模块只在开发环境中使用，而不是在代码运行过程中。模块的版本号可以根据使用设置。<br>现在在项目根目录下运行 npm install来安装package.json中声明的依赖模块，如果你还不熟悉npm，<a href="https://www.sitepoint.com/beginners-guide-node-package-manager/" target="_blank" rel="external">建议你读一下这篇文章</a><br>（译者注：要想使用最新版本的依赖模块，可以不事先在package.json文件写好，执行如下命令安装：npm install grunt –save-dev，安装完成后依赖模块会自动出现在package.json中）。 </p>
-</li>
+<li>grunt-contrib-watch 监听JavaScript的每次改变然后选择性的执行任务，在我们的例子中，文件每次改变都要执行Browserify任务。     </li>
 </ul>
 </blockquote>
+<pre><code>devDependencies中的模块只在开发环境中使用，而不是在代码运行过程中。模块的版本号可以根据使用设置。
+</code></pre><p>现在在项目根目录下运行 npm install来安装package.json中声明的依赖模块，如果你还不熟悉npm，<a href="https://www.sitepoint.com/beginners-guide-node-package-manager/" target="_blank" rel="external">建议你读一下这篇文章</a><br>（译者注：要想使用最新版本的依赖模块，可以不事先在package.json文件写好，执行如下命令安装：npm install grunt –save-dev，安装完成后依赖模块会自动出现在package.json中）。 </p>
 <h3 id="创建-babelrc文件"><a href="#创建-babelrc文件" class="headerlink" title="创建.babelrc文件"></a>创建.babelrc文件</h3><pre><code>{
     &quot;presets&quot;: [&quot;es2015&quot;],
     &quot;plugins&quot;: []
@@ -239,7 +249,18 @@ export { sum, square, variable, MyClass };
 
 import.js作为一个模块，对外提供了一个变量、一个类和函数表达式（箭头函数书写）。模块中定义的函数和变量对外是不可见的，除非显式的导出（export）他们。你可以使用export关键字。在import.js的最后一行，我们到处了sum、square、variable、MyClass。
 </code></pre><p>在index.js文件中，我们使用import关键字导入import.js中的所有函数和变量，index.js成为了项目的主文件。从下面的index.js文件内容可以看到，我们是怎么使用导入的square函数和MyClass的。我们可以从任意多的文件中导入任何变量和方法。</p>
-<p>index.js文件如下：<br>    import {sum, square, variable, MyClass} from ‘./import’;<br>    // 25<br>    console.log(square(5));<br>    var cred = {<br>        name: ‘Ritesh Kumar’,<br>        enrollmentNo: 11115078<br>    }<br>    var x = new MyClass(cred);<br>    //Ritesh Kumar<br>    console.log(x.getName());<br>如果我们想导入一个es6扩展名的模块，那么我们必须在import中写完整的文件名。看下面的例子：</p>
+<p>index.js文件如下：</p>
+<pre><code>import {sum, square, variable, MyClass} from &apos;./import&apos;;
+// 25
+console.log(square(5));
+var cred = {
+    name: &apos;Ritesh Kumar&apos;,
+    enrollmentNo: 11115078
+}
+var x = new MyClass(cred);
+//Ritesh Kumar
+console.log(x.getName());
+</code></pre><p>如果我们想导入一个es6扩展名的模块，那么我们必须在import中写完整的文件名。看下面的例子：</p>
 <pre><code>// if file extension of the importing file is .js
 // both below mentioned methods work
 import { sum, square, variable, MyClass } from &apos;./import&apos;;
