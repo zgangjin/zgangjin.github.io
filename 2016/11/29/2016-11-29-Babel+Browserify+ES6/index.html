@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="JavaScript的发展日新月异，ES6很快就要接管JS了。很多著名的框架像AngularJS 2、React Native已经开始支持ES6了。我们是时候准备拥抱变化了，所以我们应该开始在几乎所有的浏览器支持之前使用ES6码代码了。本文将要介绍如何使用Babel和Browerify来创建项目并且编写能够运行在老版本浏览器上的现代代码。Babel将ES6代码编译为大多数浏览器（包括IE9）支">
 <meta property="og:image" content="http://072322.top/assets/images/es6/list.png">
-<meta property="og:updated_time" content="2016-11-29T07:27:21.000Z">
+<meta property="og:updated_time" content="2016-11-29T09:27:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Babel和Browserify创建你的ES6项目">
 <meta name="twitter:description" content="JavaScript的发展日新月异，ES6很快就要接管JS了。很多著名的框架像AngularJS 2、React Native已经开始支持ES6了。我们是时候准备拥抱变化了，所以我们应该开始在几乎所有的浏览器支持之前使用ES6码代码了。本文将要介绍如何使用Babel和Browerify来创建项目并且编写能够运行在老版本浏览器上的现代代码。Babel将ES6代码编译为大多数浏览器（包括IE9）支">
@@ -183,8 +183,7 @@
 <li>grunt-contrib-watch 监听JavaScript的每次改变然后选择性的执行任务，在我们的例子中，文件每次改变都要执行Browserify任务。     </li>
 </ul>
 </blockquote>
-<pre><code>devDependencies中的模块只在开发环境中使用，而不是在代码运行过程中。模块的版本号可以根据使用设置。
-</code></pre><p>现在在项目根目录下运行 npm install来安装package.json中声明的依赖模块，如果你还不熟悉npm，<a href="https://www.sitepoint.com/beginners-guide-node-package-manager/" target="_blank" rel="external">建议你读一下这篇文章</a><br>（译者注：要想使用最新版本的依赖模块，可以不事先在package.json文件写好，执行如下命令安装：npm install grunt –save-dev，安装完成后依赖模块会自动出现在package.json中）。 </p>
+<p>devDependencies中的模块只在开发环境中使用，而不是在代码运行过程中。模块的版本号可以根据使用设置。<br>现在在项目根目录下运行 npm install来安装package.json中声明的依赖模块，如果你还不熟悉npm，<a href="https://www.sitepoint.com/beginners-guide-node-package-manager/" target="_blank" rel="external">建议你读一下这篇文章</a><br>（译者注：要想使用最新版本的依赖模块，可以不事先在package.json文件写好，执行如下命令安装：npm install grunt –save-dev，安装完成后依赖模块会自动出现在package.json中）。 </p>
 <h3 id="创建-babelrc文件"><a href="#创建-babelrc文件" class="headerlink" title="创建.babelrc文件"></a>创建.babelrc文件</h3><pre><code>{
     &quot;presets&quot;: [&quot;es2015&quot;],
     &quot;plugins&quot;: []
@@ -246,7 +245,7 @@ class MyClass {
     }
 }
 export { sum, square, variable, MyClass };
-</code></pre><p> import.js作为一个模块，对外提供了一个变量、一个类和函数表达式（箭头函数书写）。模块中定义的函数和变量对外是不可见的，除非显式的导出（export）他们。你可以使用export关键字。在import.js的最后一行，我们到处了sum、square、variable、MyClass。<br>在index.js文件中，我们使用import关键字导入import.js中的所有函数和变量，index.js成为了项目的主文件。从下面的index.js文件内容可以看到，我们是怎么使用导入的square函数和MyClass的。我们可以从任意多的文件中导入任何变量和方法。</p>
+</code></pre><p>import.js作为一个模块，对外提供了一个变量、一个类和函数表达式（箭头函数书写）。模块中定义的函数和变量对外是不可见的，除非显式的导出（export）他们。你可以使用export关键字。在import.js的最后一行，我们到处了sum、square、variable、MyClass。<br>在index.js文件中，我们使用import关键字导入import.js中的所有函数和变量，index.js成为了项目的主文件。从下面的index.js文件内容可以看到，我们是怎么使用导入的square函数和MyClass的。我们可以从任意多的文件中导入任何变量和方法。</p>
 <p>index.js文件如下：</p>
 <pre><code>import {sum, square, variable, MyClass} from &apos;./import&apos;;
 // 25
