@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://072322.top">
+  <title>flash性能优化方案整理 | zgangjin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="性能优化的原则1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flash性能优化方案整理">
+<meta property="og:url" content="http://072322.top/2014/01/20/2013-03-20-AS3player/index.html">
+<meta property="og:site_name" content="zgangjin">
+<meta property="og:description" content="性能优化的原则1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。">
+<meta property="og:updated_time" content="2017-02-16T03:44:53.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flash性能优化方案整理">
+<meta name="twitter:description" content="性能优化的原则1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。">
+  
+    <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/images/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/images/headimg.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zgangjin</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不要因为路途遥远就忘记为什么而出发</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/zgangjin/" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="/729777679" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="/729777679@qq.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">zgangjin</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/images/headimg.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zgangjin</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不要因为路途遥远就忘记为什么而出发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zgangjin/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/729777679" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/729777679@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-2013-03-20-AS3player" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flash性能优化方案整理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="性能优化的原则"><a href="#性能优化的原则" class="headerlink" title="性能优化的原则"></a>性能优化的原则</h4><p>1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。<br>2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。<br><a id="more"></a></p>
+<pre><code>git init
+</code></pre><h4 id="把耗费CPU的计算分成小而独立的段"><a href="#把耗费CPU的计算分成小而独立的段" class="headerlink" title="把耗费CPU的计算分成小而独立的段"></a>把耗费CPU的计算分成小而独立的段</h4><p>参见：<a href="http://www.senocular.com/flash/tutorials/asyncoperations/" target="_blank" rel="external">http://www.senocular.com/flash/tutorials/asyncoperations/</a></p>
+<p>Flash平台是一个单线程的平台，它不支持多线程。它运行在一个循环中，以划分的“帧”为单位进行处理。帧的执行又可划分为2个阶段：</p>
+<p>（1）ActionScript 代码的执行</p>
+<p>（2）显示对象（DisplayObject）的呈现</p>
+<p>如果代码执行的时间过长，超出了给定的timeout时限，那么Flash Player会被锁定或者停止执行代码，如:</p>
+<pre><code>[Fault] exception, information=Error: Error #1502: 脚本的执行时间已经超过了 15 秒的默认超时设置。
+</code></pre><p>如果想添加某个特定的文件，只需把.换成特定的文件名即可</p>
+<h4 id="第三步：将add的文件commit到仓库"><a href="#第三步：将add的文件commit到仓库" class="headerlink" title="第三步：将add的文件commit到仓库"></a>第三步：将add的文件commit到仓库</h4><pre><code>git commit -m &quot;注释语句&quot;
+</code></pre><p>这时，我们需要将代码分为小而独立的段来进行执行。如下例:</p>
+<pre><code>var allowedTime = 1000/fps - renderTime - otherScriptsTime;
+var startTime = 0;
+var savedIndex = 0;
+function enterFrame() {
+    startTime = getTimer();
+
+    var i, n = array.length;
+    for (i=savedIndex; i&lt;n; i++){
+
+        if (getTimer() - startTime &gt; allowedTime){
+            savedIndex = i;
+            return;
+        }
+
+        process(array[i]);
+    }
+
+    complete();
+}
+</code></pre><h4 id="使用适当的对象"><a href="#使用适当的对象" class="headerlink" title="使用适当的对象"></a>使用适当的对象</h4><p>不同的对象占用的内存不同，而且不同的对象，适用的情况也不同，这时，应尽量选用占内存最小的适当对象类型。</p>
+<p>1.选用适当的基本对象：比如int和Number，分别消耗4个和8 个字节. int 类表示的值的范围是：-2,147,483,648 (-2^31) 到 2,147,483,647 (2^31-1)，所以如果你的取值范围在这个范围内，最好用int而不是用Number。<br>2.选用适当的显示对象：对于非交互式简单形状，请使用 Shape 对象。对于不需要时间轴的交互式对象，请使用 Sprite 对象。对于使用时间轴的动画，请使用 MovieClip 对象。更多具体情况，参见使用合适的显示子类。<br>3.选择合适的文本对象：对于只读文本，最好使用 Flash 文本引擎，它占用较少的内存并提供更好的呈现效果。对于输入文本，最好使用 TextField 对象，因为在创建典型行为（例如，输入处理和自动换行）时需要的 ActionScript 代码较少。<br>4.尽可能使用 Vector 类而不是 Array 类:Vector 类的读写访问速度比 Array 类快。但是Vector内只能存放同一类型的数据，所以我们要根据需求来使用Vector或是Array。在使用Vector时，注意要为矢量分配特定长 度并将其长度设为固定值，因为如果不提前指定矢量的大小，则矢量大小将在矢量用完空间后增加。每次矢量大小增加时，都将分配一个新的内存块。矢量的当前内 容会复制到新内存块中。这种额外的分配和复制数据会降低性能。尽可能尝试使用 Vector 对象 API，因为它们的运行速度可能更快。<br>5.尽可能使用 String 类方法（如indexOf()、substr()或substring()）代替正则表达式来实现基本字符串查找和提取：在使用正则表达式时如果需要对元素进行分组，但不需要在结果中隔离该组的内容，请使用非捕获组（“(?:xxxx)”）代替正则表达式中的（“(xxxx)”）组。 </p>
+<h4 id="重用对象"><a href="#重用对象" class="headerlink" title="重用对象"></a>重用对象</h4><p>尽可能重复使用对象并避免重新创建对象, 因为实例化对象成本很高。而且因为内存分配有时会触发垃圾回收，所以重用对象还可以减少垃圾回收器运行的机会，从而提高应用程序运行速度。<br>1.避免在一个循环中创建对象，尽力将对象创建在循环外部并在循环内反复重用它。如下例，我们就重用了BitmapData对象：</p>
+<pre><code>// Create a single 20 x 20 pixel bitmap, non-transparent 
+var myImage:BitmapData = new BitmapData(20,20,false,0xF0D062); 
+var myContainer:Bitmap; 
+const MAX_NUM:int = 300; 
+
+for (var i:int = 0; i&lt; MAX_NUM; i++) 
+{ 
+    // Create a container referencing the BitmapData instance 
+    myContainer = new Bitmap(myImage); 
+
+    // Add it to the display list 
+    addChild(myContainer); 
+
+    // Place each container 
+    myContainer.x = (myContainer.width + 8) * Math.round(i % 20); 
+    myContainer.y = (myContainer.height + 8) * int(i / 20); 
+}
+</code></pre><p>2.使用对象池，在初始化应用程序期间创建一定数量的对象并将其存储在一个池中，在需要时取用，用完放回池中。</p>
+<h4 id="释放内存"><a href="#释放内存" class="headerlink" title="释放内存"></a>释放内存</h4><p>在 Flash Player 的发行版中无法直接启动垃圾回收器，而是被系统自动启动。想要释放一个对象，需要通过删除对象引用的方式进行。Flashplayer debug版本提供了System.gc()接口，我们可以在程序的创作阶段利用这个函数来检验程序中的对象引用有没有被正确解除。</p>
+<p>要正确的释放对象，需要注意如下几点：</p>
+<p>1.必须删除对象所有的引用。<br>2.对象内部成员必须不存在对外部对象的引用。即删除所有内部成员的引用。<br>3.必须删除EnterFrame，Timer等事件监听器。对于Timer还必须先stop。<br>4.对于BitmapData，还需要先用dispose()方法删除内存中的像素。<br>5.对于加载的SWF等，需要先用loader.unloadAndStop()卸载。<br>6.播放完声音或一个 SoundChannel 实例被用于对声音执行 stop() 时，就已经已准备好对该声音进行垃圾回收。</p>
+<p>关于弱引用</p>
+<p>这 种引用不会被垃圾收集器作为判定object是否被回收的依据。它的作用是：如果当一个对象仅仅剩下弱引用时，这个对象将会被垃圾收集器在下一轮回收。但 是弱引用只支持两种类型：第一种是经常会因为内存管理机制带来麻烦的事件监听器，建议每当添加监听器时，都将其第五个参数选项，即弱引用设置为true。 下面是其对应的参数设置的例子：</p>
+<pre><code>someObj.addEventListener(&quot;eventName&quot;,listenerFunction,useCapture,priority,weakReference);
+stage.addEventListener(Event.CLICK,handleClick,false,0,true);
+// the reference back to handleClick (and this object) will be weak.
+</code></pre><p>另一个弱引用支持的是Dictionary object。一般情况下在初始化时设置其第一个参数为true，下面是例子：</p>
+<pre><code>var dict:Dictionary = new Dictionary(true);
+dict[myObj] = myOtherObj;
+// the reference to myObj is weak, the reference to myOtherObj is strong
+</code></pre><p>注意：如果系统认为可用内存不是足够低，垃圾回收器可能不会运行。垃圾回收的执行时间不可预知。内存分配（而不是对象删除）会触发垃圾回收。</p>
+<p>关于垃圾回收的详细讲解，可以参看。<a href="http://www.cnblogs.com/czjone/archive/2010/09/30/1839633.html" target="_blank" rel="external">Flash AS3 垃圾回收机制详解</a></p>
+<h4 id="预处理资源和数据"><a href="#预处理资源和数据" class="headerlink" title="预处理资源和数据"></a>预处理资源和数据</h4><p>对于一些处理起来较为麻烦的资源和数据，可以进行预处理，以节约CPU资源。<br>1.避免使用滤镜，包括经过 Pixel Bender 处理的滤镜。尽 可能使用通过创作工具（例如 Adobe® Photoshop®）创建的位图来模拟滤镜。避免在 ActionScript 中使用运行时创建的动态位图。使用外部创作的位图可帮助运行时减少 CPU 或 GPU 负载，特别是当滤镜属性不随时间更改时。如果可能，在创作工具中创建位图所需的任何效果。然后，可以在运行时中显示该位图，而无需对它进行任何处理，这样 速度要快得多。<br>2.mip 映射:尽量少用 mip 映射。尽管它可以改进缩小位图的品质，但它对带宽、内存和速度都有影响。在某些情况下，最好选择使用通过外部工具预缩放的位图版本，并将其导入到您的应用程序中。如果只需缩小位图，不要一开始就使用较大位图。<br>3.避免复杂矢量图:使用矢量（而不是位图）是节省内存的好方法。然而，使用矢量（特别是大量矢量），会显著增加对 CPU 或 GPU 资源的需求。使用位图是优化呈现的一个好方法，因为运行时在屏幕上绘制像素比呈现矢量内容需要的处理资源要少。如果矢量图过于复杂，最好是预处理成位图。<br>4.使用常量来代替反复重新计算相同的值</p>
+<h4 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h4><p>1.用简单的回调代替事件模型： 使用本机事件模型与使用传统的回调函数相比，速度更慢且占用的内存更多。必须创建 Event 对象并为其分配内存，而这会降低性能。例如，当侦听 Event.ENTER_FRAME 事件时，将在各个帧上为事件处理函数创建一个新事件对象。在捕获和冒泡阶段（如果显示列表很复杂，此成本会很高），显示对象的性能可能会特别低。<br>2.减少事件处理函数：利用事件捕获和冒泡可以在一个对象（而不是多个对象）上注册事件处理函数以提高性能。</p>
+<h4 id="最大程度减小-CPU-使用量"><a href="#最大程度减小-CPU-使用量" class="headerlink" title="最大程度减小 CPU 使用量"></a>最大程度减小 CPU 使用量</h4><p>1.冻结和解冻对象: 要优化您的代码，请始终冻结和解冻您的对象。冻结和解冻对所有对象都很重要，但对显示对象尤其重要。即使显示对象不再位于显示列表中并正在等待作为垃圾回 收，其代码仍然占用大量 CPU。例如，它们仍然在使用 Event.ENTER_FRAME。因此，使用Event.REMOVED_FROM_STAGE和Event.ADDED_TO_STAGE事件正确 冻结和解冻对象非常关键。<br>2.激活和停用事件:有两个事件（Event.ACTIVATE和Event.DEACTIVATE） 可以帮助您微调应用程序以使其尽量使用最少的 CPU 周期。这些事件允许您检测运行时获得或失去焦点的时间。因此可以对代码进行优化，以便对上下文更改做出反应。<br>3.禁用鼠标交互: 使用交互式对象（例如 MovieClip 或 Sprite 对象）时，运行时执行本机代码以检测和处理鼠标交互。当屏幕上显示许多交互式对象时，特别是当它们重叠时，检测鼠标交互可能会占用大量 CPU 资源。避免此处理的一种简便方法是对不需要任何鼠标交互的对象禁用鼠标交互。可以用mouseEnabled和mouseChildren来禁用鼠标交 互。</p>
+<h4 id="优化呈现性能"><a href="#优化呈现性能" class="headerlink" title="优化呈现性能"></a>优化呈现性能</h4><p>1.减小重绘区域：重绘是Flash Player性能消耗的主要大户，所以减小重绘区域面积，减少不必要的重绘次数，能减少不必要的性能消耗。可以使用函数 flash.profiler.showRedrawRegions(true);在构建项目时显示重绘区域以减小重绘区域。要减小重绘区域，主要需要做 到如下几点：<br>不要通过将DisplayObject放在后面来隐藏，虽然这样在界面上看不到了，但是还是会消耗系统资源，应该停止运行隐藏的DisplayObject并将隐藏运行的DisplayObject的visible属性设置为false或将其从显示列表中完全删除。<br>2.在影片品质和效率之间折中。<br>3.避免使用alpha属性：alpha属性会带来不必要的计算，应该避免。<br>4.位图缓存： 可以利用AS3自带的cacheAsBitmap属性来设置缓存，这时，应该将opaqueBackground属性设置为特定颜色，运行时会将显示对象 视为不透明，且为DisplayObject设置缓存，而不对容器设置缓存，这样能最大程度的发挥位图缓存的作用。另外可以利用BitmapData自己 实现位图缓存，这样更能有效的提高性能。<br>5.使用Stage3D: 可以使用Stage3D利用GPU绘图。</p>
+<h4 id="优化网络交互"><a href="#优化网络交互" class="headerlink" title="优化网络交互"></a>优化网络交互</h4><p>1.缓存资源：加载资源后将本地缓存，而不是在每次需要时从网络进行加载。<br>2.使用 Flash Remoting 和 AMF 实现优化的客户端-服务器数据通信。</p>
+<h4 id="优化循环"><a href="#优化循环" class="headerlink" title="优化循环"></a>优化循环</h4><p>1.避免使用for in循环：for in 循环比普通的for循环浪费更多的时间，应该避免。<br>2.采用更快的算法，尽量用Vector或Array的API.<br>3.尽量优化循环内的代码：<br>有很多蚊子肉，在少量计算时无关紧要，但是在循环中一点的优化说不定也能起到大的作用，这些一点的优化包括：<br>a.用乘法来代替除法，用位运算代替除2或乘2<br>b.将多行赋值转为单行赋值(a=b=c=0)<br>c.将可以在循环外进行的运算提取到循环外。获取某些对象的属性，数组的成员等等都可以算作计算<br>d.尽可能使用内联代码以减少代码中函数的调用次数。<br>e.避免使用嵌套的if结构：例如if(a&gt;1&amp;&amp;b&gt;1){}比嵌套的if(a&gt;1){if(b&gt;1){}}要快且代码清晰。<br>f.避免使用with语句。<br>g.用int不用Math.floor():前者比后者快。<br>h.var obj:Object = new Object()比var obj:Object = {}快。<br>i.var arr:Array = []比 var arr:Array = new Array()快。<br>j.if (myObj) 比if (myObj != null) 快。<br>k.当程序里有多条分支时，将频繁发生的分支放在上面，如：</p>
+<pre><code>if ( conditionmostpopular )  {   
+
+}  else if ( conditionSomtimes )   {      
+
+}  else   {       // 最少发生
+
+}
+</code></pre><p>参考：<a href="http://help.adobe.com/zh_CN/as3/mobile/index.html" target="_blank" rel="external">http://help.adobe.com/zh_CN/as3/mobile/index.html</a></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2014/01/20/2013-03-20-AS3player/" class="archive-article-date">
+  	<time datetime="2014-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-01-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/07/13/2016-07-13-GitTutorial/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [转载]Git教程1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5学习笔记——canvas渐变</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2013-03-20-AS3player" data-title="flash性能优化方案整理" data-url="http://072322.top/2014/01/20/2013-03-20-AS3player/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 zgangjin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/AS3/" style="font-size: 10px;">AS3</a> <a href="/tags/Html5/" style="font-size: 20px;">Html5</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://shenqianqian.com">倩倩的首页</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">不要因为路途遥远就忘记为什么而出发</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
