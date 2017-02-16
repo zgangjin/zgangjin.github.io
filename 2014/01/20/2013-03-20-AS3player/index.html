@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://072322.top/2014/01/20/2013-03-20-AS3player/index.html">
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="性能优化的原则1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。">
-<meta property="og:updated_time" content="2017-02-16T03:44:53.554Z">
+<meta property="og:updated_time" content="2017-02-16T03:48:21.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flash性能优化方案整理">
 <meta name="twitter:description" content="性能优化的原则1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。">
@@ -160,15 +160,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="性能优化的原则"><a href="#性能优化的原则" class="headerlink" title="性能优化的原则"></a>性能优化的原则</h4><p>1.避免过早优化：太早优化将使代码难以设计和维护，最好是针对程序的瓶颈进行优化。<br>2.改进性能有时需要权衡：不能一味注重改进性能，一个项目要考虑各方面的利弊，比如代码的健壮性，结构性，扩展性，可读性，执行效率等等。<br><a id="more"></a></p>
-<pre><code>git init
-</code></pre><h4 id="把耗费CPU的计算分成小而独立的段"><a href="#把耗费CPU的计算分成小而独立的段" class="headerlink" title="把耗费CPU的计算分成小而独立的段"></a>把耗费CPU的计算分成小而独立的段</h4><p>参见：<a href="http://www.senocular.com/flash/tutorials/asyncoperations/" target="_blank" rel="external">http://www.senocular.com/flash/tutorials/asyncoperations/</a></p>
+<h4 id="把耗费CPU的计算分成小而独立的段"><a href="#把耗费CPU的计算分成小而独立的段" class="headerlink" title="把耗费CPU的计算分成小而独立的段"></a>把耗费CPU的计算分成小而独立的段</h4><p>参见：<a href="http://www.senocular.com/flash/tutorials/asyncoperations/" target="_blank" rel="external">http://www.senocular.com/flash/tutorials/asyncoperations/</a></p>
 <p>Flash平台是一个单线程的平台，它不支持多线程。它运行在一个循环中，以划分的“帧”为单位进行处理。帧的执行又可划分为2个阶段：</p>
 <p>（1）ActionScript 代码的执行</p>
 <p>（2）显示对象（DisplayObject）的呈现</p>
 <p>如果代码执行的时间过长，超出了给定的timeout时限，那么Flash Player会被锁定或者停止执行代码，如:</p>
 <pre><code>[Fault] exception, information=Error: Error #1502: 脚本的执行时间已经超过了 15 秒的默认超时设置。
-</code></pre><p>如果想添加某个特定的文件，只需把.换成特定的文件名即可</p>
-<h4 id="第三步：将add的文件commit到仓库"><a href="#第三步：将add的文件commit到仓库" class="headerlink" title="第三步：将add的文件commit到仓库"></a>第三步：将add的文件commit到仓库</h4><pre><code>git commit -m &quot;注释语句&quot;
 </code></pre><p>这时，我们需要将代码分为小而独立的段来进行执行。如下例:</p>
 <pre><code>var allowedTime = 1000/fps - renderTime - otherScriptsTime;
 var startTime = 0;
