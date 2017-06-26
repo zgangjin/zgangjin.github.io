@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://072322.top/assets/images/FlashPlayer/paodao.jpg">
 <meta property="og:image" content="http://072322.top/assets/images/FlashPlayer/avm2.jpg">
 <meta property="og:image" content="http://072322.top/assets/images/FlashPlayer/action.jpg">
-<meta property="og:updated_time" content="2017-06-26T03:50:53.622Z">
+<meta property="og:updated_time" content="2017-06-26T03:53:22.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flash Player内部机制-执行模型之可变跑道">
 <meta name="twitter:description" content="理解行模型　　执行模型是指Flash Player在每一个帧周期中如何执行相应的指令操作。Flash Player后台事实上运行着n多线程，只是AS并没有给开发人员提供多线程编程模型。这意味着从概念上来讲我们要把Flash Player看做是单线程运行实体，有关这一单线程编程模型的优势/劣势的争论从未休止过，我不想对这一具有争议性的问题做过多评论，但请大家记住这一事实。">
@@ -164,7 +164,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="理解行模型"><a href="#理解行模型" class="headerlink" title="理解行模型"></a>理解行模型</h3><p>　　执行模型是指Flash Player在每一个帧周期中如何执行相应的指令操作。Flash Player后台事实上运行着n多线程，只是AS并没有给开发人员提供多线程编程模型。这意味着从概念上来讲我们要把Flash Player看做是单线程运行实体，有关这一单线程编程模型的优势/劣势的争论从未休止过，我不想对这一具有争议性的问题做过多评论，但请大家记住这一事实。<br><a id="more"></a></p>
-<h3 id="可变跑道-Elastic-Racetrack"><a href="#可变跑道-Elastic-Racetrack" class="headerlink" title="可变跑道(Elastic Racetrack)"></a>可变跑道(Elastic Racetrack)</h3><p>　　可变跑道是Flash Player的帧执行模型，这个模型描述了在一帧的处理周期中，代码执行和帧渲染的工作是怎样彼此平衡的。Flash Player 9和AVM2对这一模型进行了一些改进，这一信息是基于对事件机制和渲染模型的研究总结出来的，完整的模型尚未被官方公布。<br>基本的跑道理论没有发生改变，在Flash Player执行一帧的周期里，前一部分时间用于执行代码，剩余时间用于渲染显示列表中的对象。每个执行阶段都可以根据实际需求增加执行时间来执行更多代码或做更多的渲染工作，而跑道的总长度也将相应增长。<br><img src="/assets/images/FlashPlayer/paodao.jpg" height="300" width="100"><br>在前一模型基础上发生改变的是每一阶段在一个微观周期里的样子以及他们怎样形成一帧。</p>
+<h3 id="可变跑道-Elastic-Racetrack"><a href="#可变跑道-Elastic-Racetrack" class="headerlink" title="可变跑道(Elastic Racetrack)"></a>可变跑道(Elastic Racetrack)</h3><p>　　可变跑道是Flash Player的帧执行模型，这个模型描述了在一帧的处理周期中，代码执行和帧渲染的工作是怎样彼此平衡的。Flash Player 9和AVM2对这一模型进行了一些改进，这一信息是基于对事件机制和渲染模型的研究总结出来的，完整的模型尚未被官方公布。<br>基本的跑道理论没有发生改变，在Flash Player执行一帧的周期里，前一部分时间用于执行代码，剩余时间用于渲染显示列表中的对象。每个执行阶段都可以根据实际需求增加执行时间来执行更多代码或做更多的渲染工作，而跑道的总长度也将相应增长。<br><img src="/assets/images/FlashPlayer/paodao.jpg" width="300" height="100"><br>在前一模型基础上发生改变的是每一阶段在一个微观周期里的样子以及他们怎样形成一帧。</p>
 <p>AVM2是由Flash Player中一个叫做Marshal的元帅级组件所操控，Marshal负责将时间切割成Flash Player工作所依的基本时间片，在这里我希望澄清一下Flash Player的时间片跟swf文件运行时的帧速率没有任何关系，我们将最终看到Flash Player是如何将这些时间片合成为一帧。</p>
 <p>在Mac OS版Firefox中执行一个由Flex编译得来的swf文件，Marshal通常会将时间切割成19-20毫秒的时间片,时间片大小根据平台和浏览器的不同而存在差异.为方便我们接下来的讨论,我们假定时间片大小为20毫秒,也就是说Marshal每秒钟会产生不超过50个时间片，每个时间片中，五步可能的操作按如下顺序执行:</p>
 <blockquote>
@@ -176,10 +176,10 @@
 <li>Player更改显示列表。  </li>
 </ul>
 </blockquote>
-<p><img src="/assets/images/FlashPlayer/avm2.jpg" height="400" width="176"> </p>
+<p><img src="/assets/images/FlashPlayer/avm2.jpg" width="400" height="176"> </p>
 <p>Marshal如此反复的执行20毫秒时间片并在运行中决定下一步操作。一个时间片中执行的所有这些操作最终归纳为上述两段式跑道(代码执行，图像渲染)也就是我们所说的一帧。用户代码和失效操作填充在代码执行区，渲染操作填充在跑道的渲染区段。需要指出的是相关操作只能在Marshal预定的时间内发生，如果你的用户代码很短，那么Marshal仍然会在执行完用户代码后等待一段时间然后进入渲染阶段。</p>
 <p>为了更好阐述哪些action被如何执行以及可变跑道如何被创建，请参考如下示例，分别描述了以5fps, 25fps和50fps帧速率工作的swf中时间片是如何被处理的。</p>
-<p><img src="/assets/images/FlashPlayer/action.jpg" height="400" width="116"> </p>
+<p><img src="/assets/images/FlashPlayer/action.jpg" width="400" height="116"> </p>
 <p>以上示例可以看出，不同的帧速率下，一个帧周期中的可变跑道会执行不同操作，例如对于5fps的swf，每帧处理10个用户action，1个失效action，1个渲染action；帧速率25fps的swf，每帧处理2个用户action，1个失效action，1个渲染action；<br>对于50fps的swf，每帧只能处理1个用户action，1个失效action，1个渲染action。需要指出的很重要的一点是，某些事件只可能能发生在某些特定的时间片里，比如,Event.ENTER_FRAME事件只能在某一帧的初始时间片中被调度。</p>
 <p>一个时间片中代码部分和渲染部分都有可能过长而导致相应时间片大于20毫秒，这就是”可变”的含义，为了保证帧的播放速率仍然接近swf编译时设定的帧率，Marshal会选择丢掉一些时间片。</p>
 <p>swf文件的播放速率不可能超过当前Flash Player切割时间片的速率，你可以为swf文件设定120fps的播放速率，但Flash最多可以按照50帧的速度播放(具体数值取决于当前系统的设置)。</p>
