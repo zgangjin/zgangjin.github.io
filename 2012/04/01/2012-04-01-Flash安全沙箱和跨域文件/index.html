@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://www.zgangjn.top">
+  <title>Flash安全沙箱和跨域文件。 | zgangjin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Flash安全沙箱和跨域文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flash安全沙箱和跨域文件。">
+<meta property="og:url" content="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/index.html">
+<meta property="og:site_name" content="zgangjin">
+<meta property="og:description" content="Flash安全沙箱和跨域文件。">
+<meta property="og:updated_time" content="2019-04-24T09:20:24.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flash安全沙箱和跨域文件。">
+<meta name="twitter:description" content="Flash安全沙箱和跨域文件。">
+  
+    <link rel="alternative" href="/atom.xml" title="zgangjin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/images/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/images/headimg.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">zgangjin</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不要因为路途遥远就忘记为什么而出发</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/zgangjin/" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="/729777679" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="/729777679@qq.com" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">zgangjin</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/images/headimg.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">zgangjin</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不要因为路途遥远就忘记为什么而出发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zgangjin/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/729777679" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/729777679@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="Flash-2012-04-01-Flash安全沙箱和跨域文件" class="article article-type-Flash" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Flash安全沙箱和跨域文件。
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　Flash安全沙箱和跨域文件。<br><a id="more"></a></p>
+<h3 id="一-简述flash的安全沙箱"><a href="#一-简述flash的安全沙箱" class="headerlink" title="一 简述flash的安全沙箱"></a>一 简述flash的安全沙箱</h3><p>　　Flash有四种基本的沙箱类型：</p>
+<pre><code>Remote: swf来自网络，遵守域的沙箱规则，不能读取不同域中的资源，除非有设置。
+
+Local with file ：swf是本地文件，可以读取本地数据，但不能与网络通信。
+
+Local with network：swf是本地文件，可以与网络通信，但不可以读取本地数据。
+
+Local trusted ：swf是本地文件，可以读取本地数据，也可以与网络通信，此为最高权限，受本地信任。（一般开发阶段，swf默认设置为此权限）
+
+位于同一沙箱中的资源始终可以互相访问。
+
+远程沙箱中的swf始终不能访问本地文件和数据。 
+</code></pre><h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><p>　　##1、概述</p>
+<pre><code>    解决flash安全沙箱带来的跨域问题的方法之一是部署策略文件（crossdomain.xml），该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
+
+    过程：
+
+    位于A域中的SWF文件要访问B域的文件时，SWF首先会检查B域服务器目录下是否有crossdomain.xml文件，如果没有，则访问不成功；若crossdomain.xml文件存在，且里边设置了允许A域访问，那么通信正常。所以要使Flash可以跨域传输数据，其关键就是crossdomain.xml。
+
+    一个通用的跨域文件内容如下：
+
+    ```  
+    &lt;?xml version=&quot;1.0&quot;?&gt;
+
+    &lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.adobe.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;
+
+    &lt;cross-domain-policy&gt; 
+
+    &lt;allow-access-from domain=&quot;*&quot; /&gt; 
+
+    &lt;/cross-domain-policy&gt; 
+    ```  
+
+##2、crossdomain.xml的配置 
+
+    1.crossdomain.xml的放置位置 
+
+    A.主策略文件放置位置
+
+    如有跨域访问需求，必须在目标域的根目录下放置crossdomain.xml文件（例如:tomcat下的root文件夹中），且该根目录下的配置文件称为“主策略文件”。若不存在主策略文件，则该域将禁止任何第三方域的flash跨域请求。
+
+    主策略文件对全站的跨域访问起控制作用。
+
+
+    B.子策略文件放置的位置
+
+    也可以单独在某路径下放置仅对该路径及其子路径生效的crossdomain.xml配置文件，这需要在flash的AS脚本中使用如下语句来加载该配置文件：[具体的加载权限限制，将受后文中site-control策略的影响]
+
+    Security.loadPolicyFile(&quot;http://www.xxx.com/subdir/crossdomain.xml&quot;)
+
+    2.crossdomain.xml的配置方法及影响 
+
+        crossdomain.xml需严格遵守XML语法，有且仅有一个根节点cross-domain-policy，且不包含任何属性。在此根节点下只能包含如下的子节点：
+        ```  
+        site-control
+
+        allow-access-from
+
+        allow-access-from-identity
+
+        allow-http-request-headers-from
+        ```  
+
+        1&gt;site-control：通过检查该节点的属性值，确认是否可以允许加载其他策略文件。[如果该策略文件并非主策略文件，则此节点被自动忽略] 
+
+            每个site-control标签有且仅有属性permitted-cross-domain-policies，该属性指定相对于非主策略文件的其他策略文件的加载策略。permitted-cross-domain-policies属性值有如下情况：
+
+            none: 不允许使用loadPolicyFile方法加载任何策略文件，包括此主策略文件。
+
+            master-only: 只允许使用主策略文件[默认值]。
+
+            by-content-type:只允许使用loadPolicyFile方法加载HTTP/HTTPS协议下Content-Type 为text/x-cross-domain-policy的文件作为跨域策略文件。
+
+            by-ftp-filename:只允许使用loadPolicyFile方法加载FTP协议下文件名为 crossdomain.xml的文件作为跨域策略文件。
+
+            all: 可使用loadPolicyFile方法加载目标域上的任何文件作为跨域策略文件，甚至是一 个JPG也可被加载为策略文件！[使用此选项那就等着被xx吧！] 
+
+            如需要对网站某子目录做单独的flash跨域限制策略，在主策略文件中必须进行相应的site-control设置。 
+
+            如果网站的根目录下没有主策略文件，而在子文件夹中部署了子策略文件，那么flash会报错，提示服务器的默认设置是“master-only”，将自动忽略子文件夹中的策略文件。简而言之，要使用子策略文件，根目录必须有个主策略文件。
+
+            下面的例子将site-control策略配置为可加载本服务器中其它的text/x-cross-domain-policy文件作为跨域策略文件。
+            ```  
+            &lt;cross-domain-policy&gt; 
+
+            &lt;site-control permitted-cross-domain-policies=&quot;by-content-type&quot; /&gt; 
+
+            &lt;/cross-domain-policy&gt;
+            ```  
+        2&gt;allow-access-from：通过检查该节点的属性值，确认能够读取本域内容的flash文件来源域。 
+
+            allow-access-from标签有三个属性：
+
+            domain:该属性指定一个确切的 IP 地址、一个确切的域或一个通配符域（任何域）。只有domain中指定的域，才有权限通过flash读取本域中的内容。 
+
+            可采用下列两种方式之一来表示通配符域：
+
+            1）单个星号（*），如：&lt;allow-access-fromdomain=&quot;*&quot; /&gt;，表示匹配所有域和所有 IP 地 址，此时任何域均可跨域访问本域上的内容。[这是极不安全的！]
+
+            2）后接后缀的星号，表示只匹配那些以指定后缀结尾的域，如*.qq.com可匹配 game.qq.com、qq.com。形如www.q*.com或www.qq.*的为无效配置。
+
+            Tips:当domain被指定为IP地址时，只接受使用该IP作为网址来访问的来源请求[此时ip地址也就相当于一个域名而已]，如domain被设置为192.168.1.100时，使用http://192.168.1.100/flash.swf 来请求该域内容是允许的，但是使用指向192.168.1.100的域名www.a.com来访问时[http://www.a.com/flash.swf]将会被拒绝，因为flash不懂得dns解析 
+
+            to-ports：该属性值表明允许访问读取本域内容的socket连接端口范围。可使用to-ports=&quot;1100,1120-1125&quot;这样的形式来限定端口范围，也可使用通配符（*）表示允许所有端口。 
+
+            secure:该属性值指明信息是否经加密传输。当crossdomain.xml文件使用https加载时，secure默认设为true。此时将不允许flash传输非https加密内容。若手工设置为false则允许flash传输非https加密内容。(adobe官方建议不使用false) 
+
+            下面的例子配置为允许所有qq.com下的所有二级域名[包括qq.com本身]通过https访问本域中的内容。
+
+            &lt;cross-domain-policy&gt; 
+
+            &lt;allow-access-from domain=&quot;*.qq.com&quot; secure=&quot;true&quot; /&gt; 
+
+            &lt;/cross-domain-policy&gt;
+
+        3&gt;allow-access-from-identity：该节点配置跨域访问策略为允许有特定证书的来源跨域访问本域上的资源。每个allow-access-from-identity节点最多只能包含一个signatory子节点。
+            ``` 
+
+            &lt;allow-access-from-identity&gt;
+
+            &lt;signatory&gt;
+
+            &lt;certificate
+
+            fingerprint=&quot;01:23:45:67:89:ab:cd:ef:01:23:45:67:89:ab:cd:ef:01:23:45:67&quot;
+
+            fingerprint-algorithm=&quot;sha-1&quot;/&gt;
+
+            &lt;/signatory&gt;
+
+            &lt;/allow-access-from-identity&gt;
+            ```  
+
+        4&gt;allow-http-request-headers-from：此节点授权第三方域flash向本域发送用户定义的http头。
+
+            allow-access-from节点授权第三域提取本域中的数据，而 allow-http-request-headers-from 节点授权第三方域将数据以http头的形式发送到本域中。[简而言之，allow-access-from是控制读取权限，allow-http-request-headers-from是控制以http头形式的写入权限]
+
+            allow-http-request-headers-from包含三个属性：
+
+            domain：作用及参数格式与allow-access-from节点中的domain类似。
+
+            headers：以逗号隔开的列表，表明允许发送的http头。可用通配符（*）表示全部 http头。
+
+            secure：作用及用法与allow-access-from节点中的secure相同。
+
+            在下面的示例中，任何域都可以向当前域发送 SOAPAction 标头：
+            ```  
+            &lt;cross-domain-policy&gt; 
+
+            &lt;allow-http-request-headers-from domain=&quot;*&quot; headers=&quot;SOAPAction&quot; /&gt; 
+
+            &lt;/cross-domain-policy&gt;
+            ```  
+</code></pre><p>三、总结</p>
+<p>不正确的crossdomain.xml策略将导致严重的安全问题，如信息泄露、CSRF等。从上文中可以看出，在进行安全评估时，我们应重点关注以下几点： </p>
+<p>1）allow-access-from标签的domain属性检测：domain属性应根据最小化原则按需设置，仅允许可信任的来源跨域请求本域内容。禁止将该属性值设置为“*”。</p>
+<p>2）allow-http-request-headers-from标签的domain属性检测：domain属性应根据最小化原则按需设置，仅允许可信任的来源向本域跨域发送内容。禁止将该属性值设置为“*”。</p>
+<p>3） site-control标签的permitted-cross-domain-policies属性检测：根据业务的实际需求及可行性，对该属性做相应设置。禁止将该属性值设置为“all”。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>希望这篇文章让你对于Flash跨域有更新的了解，并且期待着你的评论。
+　</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/" class="archive-article-date">
+  	<time datetime="2012-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2012-04-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AS3/">AS3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2014/01/20/2013-03-20-AS3player/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          flash性能优化方案整理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2012-04-01-Flash安全沙箱和跨域文件" data-title="Flash安全沙箱和跨域文件。" data-url="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 zgangjin
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/AS3/" style="font-size: 20px;">AS3</a> <a href="/tags/Html5/" style="font-size: 20px;">Html5</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://shenqianqian.com">倩倩的首页</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">不要因为路途遥远就忘记为什么而出发</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
