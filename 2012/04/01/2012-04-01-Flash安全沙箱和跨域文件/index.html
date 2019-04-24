@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/index.html">
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="Flash安全沙箱和跨域文件。">
-<meta property="og:updated_time" content="2019-04-24T09:20:24.566Z">
+<meta property="og:updated_time" content="2019-04-24T09:57:13.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flash安全沙箱和跨域文件。">
 <meta name="twitter:description" content="Flash安全沙箱和跨域文件。">
@@ -172,7 +172,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
 位于同一沙箱中的资源始终可以互相访问。
 
 远程沙箱中的swf始终不能访问本地文件和数据。 
-</code></pre><h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><p>　　##1、概述</p>
+</code></pre><h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><p>　　#### 1、概述</p>
 <pre><code>    解决flash安全沙箱带来的跨域问题的方法之一是部署策略文件（crossdomain.xml），该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
 
     过程：
@@ -193,7 +193,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
     &lt;/cross-domain-policy&gt; 
     ```  
 
-##2、crossdomain.xml的配置 
+#### 2、crossdomain.xml的配置 
 
     1.crossdomain.xml的放置位置 
 
@@ -276,8 +276,8 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
             &lt;/cross-domain-policy&gt;
 
         3&gt;allow-access-from-identity：该节点配置跨域访问策略为允许有特定证书的来源跨域访问本域上的资源。每个allow-access-from-identity节点最多只能包含一个signatory子节点。
-            ``` 
 
+            ``` 
             &lt;allow-access-from-identity&gt;
 
             &lt;signatory&gt;
@@ -354,8 +354,8 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
     </a>
   
   
-    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5学习笔记——canvas渐变</div>
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
       <i class="icon-circle-right"></i>
     </a>
   
