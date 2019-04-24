@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/index.html">
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="Flash安全沙箱和跨域文件。">
-<meta property="og:updated_time" content="2019-04-24T09:57:13.610Z">
+<meta property="og:updated_time" content="2019-04-24T10:13:44.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flash安全沙箱和跨域文件。">
 <meta name="twitter:description" content="Flash安全沙箱和跨域文件。">
@@ -160,42 +160,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>　　Flash安全沙箱和跨域文件。<br><a id="more"></a></p>
-<h3 id="一-简述flash的安全沙箱"><a href="#一-简述flash的安全沙箱" class="headerlink" title="一 简述flash的安全沙箱"></a>一 简述flash的安全沙箱</h3><p>　　Flash有四种基本的沙箱类型：</p>
-<pre><code>Remote: swf来自网络，遵守域的沙箱规则，不能读取不同域中的资源，除非有设置。
+<h3 id="一-简述flash的安全沙箱"><a href="#一-简述flash的安全沙箱" class="headerlink" title="一 简述flash的安全沙箱"></a>一 简述flash的安全沙箱</h3><p>Flash有四种基本的沙箱类型：</p>
+<pre><code>+ Remote: swf来自网络，遵守域的沙箱规则，不能读取不同域中的资源，除非有设置。
++ Local with file ：swf是本地文件，可以读取本地数据，但不能与网络通信。
++ Local with network：swf是本地文件，可以与网络通信，但不可以读取本地数据。
++ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网络通信，此为最高权限，受本地信任。（一般开发阶段，swf默认设置为此权限）
+</code></pre><p>位于同一沙箱中的资源始终可以互相访问。    远程沙箱中的swf始终不能访问本地文件和数据。 </p>
+<h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><pre><code>解决flash安全沙箱带来的跨域问题的方法之一是部署策略文件（crossdomain.xml），该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
 
-Local with file ：swf是本地文件，可以读取本地数据，但不能与网络通信。
+过程：
 
-Local with network：swf是本地文件，可以与网络通信，但不可以读取本地数据。
+位于A域中的SWF文件要访问B域的文件时，SWF首先会检查B域服务器目录下是否有crossdomain.xml文件，如果没有，则访问不成功；若crossdomain.xml文件存在，且里边设置了允许A域访问，那么通信正常。所以要使Flash可以跨域传输数据，其关键就是crossdomain.xml。
 
-Local trusted ：swf是本地文件，可以读取本地数据，也可以与网络通信，此为最高权限，受本地信任。（一般开发阶段，swf默认设置为此权限）
+一个通用的跨域文件内容如下：
 
-位于同一沙箱中的资源始终可以互相访问。
+```  
+&lt;?xml version=&quot;1.0&quot;?&gt;
 
-远程沙箱中的swf始终不能访问本地文件和数据。 
-</code></pre><h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><p>　　#### 1、概述</p>
-<pre><code>    解决flash安全沙箱带来的跨域问题的方法之一是部署策略文件（crossdomain.xml），该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
+&lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.adobe.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;
 
-    过程：
+&lt;cross-domain-policy&gt; 
 
-    位于A域中的SWF文件要访问B域的文件时，SWF首先会检查B域服务器目录下是否有crossdomain.xml文件，如果没有，则访问不成功；若crossdomain.xml文件存在，且里边设置了允许A域访问，那么通信正常。所以要使Flash可以跨域传输数据，其关键就是crossdomain.xml。
+&lt;allow-access-from domain=&quot;*&quot; /&gt; 
 
-    一个通用的跨域文件内容如下：
-
-    ```  
-    &lt;?xml version=&quot;1.0&quot;?&gt;
-
-    &lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.adobe.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;
-
-    &lt;cross-domain-policy&gt; 
-
-    &lt;allow-access-from domain=&quot;*&quot; /&gt; 
-
-    &lt;/cross-domain-policy&gt; 
-    ```  
-
-#### 2、crossdomain.xml的配置 
-
-    1.crossdomain.xml的放置位置 
+&lt;/cross-domain-policy&gt; 
+```  
+</code></pre><h4 id="2、crossdomain-xml的配置"><a href="#2、crossdomain-xml的配置" class="headerlink" title="2、crossdomain.xml的配置"></a>2、crossdomain.xml的配置</h4><pre><code>1.crossdomain.xml的放置位置 
 
     A.主策略文件放置位置
 
@@ -210,9 +200,9 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
 
     Security.loadPolicyFile(&quot;http://www.xxx.com/subdir/crossdomain.xml&quot;)
 
-    2.crossdomain.xml的配置方法及影响 
+2.crossdomain.xml的配置方法及影响 
 
-        crossdomain.xml需严格遵守XML语法，有且仅有一个根节点cross-domain-policy，且不包含任何属性。在此根节点下只能包含如下的子节点：
+    crossdomain.xml需严格遵守XML语法，有且仅有一个根节点cross-domain-policy，且不包含任何属性。在此根节点下只能包含如下的子节点：
         ```  
         site-control
 
@@ -223,7 +213,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
         allow-http-request-headers-from
         ```  
 
-        1&gt;site-control：通过检查该节点的属性值，确认是否可以允许加载其他策略文件。[如果该策略文件并非主策略文件，则此节点被自动忽略] 
+    1&gt;site-control：通过检查该节点的属性值，确认是否可以允许加载其他策略文件。[如果该策略文件并非主策略文件，则此节点被自动忽略] 
 
             每个site-control标签有且仅有属性permitted-cross-domain-policies，该属性指定相对于非主策略文件的其他策略文件的加载策略。permitted-cross-domain-policies属性值有如下情况：
 
@@ -249,7 +239,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
 
             &lt;/cross-domain-policy&gt;
             ```  
-        2&gt;allow-access-from：通过检查该节点的属性值，确认能够读取本域内容的flash文件来源域。 
+    2&gt;allow-access-from：通过检查该节点的属性值，确认能够读取本域内容的flash文件来源域。 
 
             allow-access-from标签有三个属性：
 
@@ -275,7 +265,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
 
             &lt;/cross-domain-policy&gt;
 
-        3&gt;allow-access-from-identity：该节点配置跨域访问策略为允许有特定证书的来源跨域访问本域上的资源。每个allow-access-from-identity节点最多只能包含一个signatory子节点。
+    3&gt;allow-access-from-identity：该节点配置跨域访问策略为允许有特定证书的来源跨域访问本域上的资源。每个allow-access-from-identity节点最多只能包含一个signatory子节点。
 
             ``` 
             &lt;allow-access-from-identity&gt;
@@ -293,7 +283,7 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
             &lt;/allow-access-from-identity&gt;
             ```  
 
-        4&gt;allow-http-request-headers-from：此节点授权第三方域flash向本域发送用户定义的http头。
+    4&gt;allow-http-request-headers-from：此节点授权第三方域flash向本域发送用户定义的http头。
 
             allow-access-from节点授权第三域提取本域中的数据，而 allow-http-request-headers-from 节点授权第三方域将数据以http头的形式发送到本域中。[简而言之，allow-access-from是控制读取权限，allow-http-request-headers-from是控制以http头形式的写入权限]
 
@@ -354,8 +344,8 @@ Local trusted ：swf是本地文件，可以读取本地数据，也可以与网
     </a>
   
   
-    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
+    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5学习笔记——canvas渐变</div>
       <i class="icon-circle-right"></i>
     </a>
   
