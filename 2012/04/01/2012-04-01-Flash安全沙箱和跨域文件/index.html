@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/index.html">
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="Flash安全沙箱和跨域文件。">
-<meta property="og:updated_time" content="2019-04-24T10:13:44.700Z">
+<meta property="og:updated_time" content="2019-04-24T10:15:30.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flash安全沙箱和跨域文件。">
 <meta name="twitter:description" content="Flash安全沙箱和跨域文件。">
@@ -165,7 +165,7 @@
 + Local with file ：swf是本地文件，可以读取本地数据，但不能与网络通信。
 + Local with network：swf是本地文件，可以与网络通信，但不可以读取本地数据。
 + Local trusted ：swf是本地文件，可以读取本地数据，也可以与网络通信，此为最高权限，受本地信任。（一般开发阶段，swf默认设置为此权限）
-</code></pre><p>位于同一沙箱中的资源始终可以互相访问。    远程沙箱中的swf始终不能访问本地文件和数据。 </p>
+</code></pre><p>位于同一沙箱中的资源始终可以互相访问。    远程沙箱中的swf始终不能访问本地文件和数据。     </p>
 <h3 id="二-Flash跨域策略文件crossdomain-xml配置详解"><a href="#二-Flash跨域策略文件crossdomain-xml配置详解" class="headerlink" title="二 Flash跨域策略文件crossdomain.xml配置详解"></a>二 Flash跨域策略文件crossdomain.xml配置详解</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><pre><code>解决flash安全沙箱带来的跨域问题的方法之一是部署策略文件（crossdomain.xml），该文件限制了flash是否可以跨域读写数据以及允许从什么地方跨域读写数据。
 
 过程：
@@ -282,7 +282,6 @@
 
             &lt;/allow-access-from-identity&gt;
             ```  
-
     4&gt;allow-http-request-headers-from：此节点授权第三方域flash向本域发送用户定义的http头。
 
             allow-access-from节点授权第三域提取本域中的数据，而 allow-http-request-headers-from 节点授权第三方域将数据以http头的形式发送到本域中。[简而言之，allow-access-from是控制读取权限，allow-http-request-headers-from是控制以http头形式的写入权限]
@@ -303,7 +302,7 @@
 
             &lt;/cross-domain-policy&gt;
             ```  
-</code></pre><p>三、总结</p>
+</code></pre><p>###三、总结</p>
 <p>不正确的crossdomain.xml策略将导致严重的安全问题，如信息泄露、CSRF等。从上文中可以看出，在进行安全评估时，我们应重点关注以下几点： </p>
 <p>1）allow-access-from标签的domain属性检测：domain属性应根据最小化原则按需设置，仅允许可信任的来源跨域请求本域内容。禁止将该属性值设置为“*”。</p>
 <p>2）allow-http-request-headers-from标签的domain属性检测：domain属性应根据最小化原则按需设置，仅允许可信任的来源向本域跨域发送内容。禁止将该属性值设置为“*”。</p>
@@ -344,8 +343,8 @@
     </a>
   
   
-    <a href="/2012/02/15/2012-02-15-Canvas1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5学习笔记——canvas渐变</div>
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
       <i class="icon-circle-right"></i>
     </a>
   
