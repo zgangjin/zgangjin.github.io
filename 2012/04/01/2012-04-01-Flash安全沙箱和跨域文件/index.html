@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://www.zgangjn.top/2012/04/01/2012-04-01-Flash安全沙箱和跨域文件/index.html">
 <meta property="og:site_name" content="zgangjin">
 <meta property="og:description" content="Flash安全沙箱和跨域文件。">
-<meta property="og:updated_time" content="2019-04-24T10:43:30.391Z">
+<meta property="og:updated_time" content="2019-04-25T01:33:39.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flash安全沙箱和跨域文件。">
 <meta name="twitter:description" content="Flash安全沙箱和跨域文件。">
@@ -209,7 +209,7 @@ allow-http-request-headers-from
 </code></pre><p>2&gt;allow-access-from：通过检查该节点的属性值，确认能够读取本域内容的flash文件来源域。 </p>
 <p>allow-access-from标签有三个属性：<br><em>domain:该属性指定一个确切的 IP 地址、一个确切的域或一个通配符域（任何域）。只有domain中指定的域，才有权限通过flash读取本域中的内容。<br>可采用下列两种方式之一来表示通配符域：<br>1）单个星号（</em>），如：<allow-access-fromdomain="*">，表示匹配所有域和所有 IP 地 址，此时任何域均可跨域访问本域上的内容。[这是极不安全的！]<br>2）后接后缀的星号，表示只匹配那些以指定后缀结尾的域，如<em>.qq.com可匹配 game.qq.com、qq.com。形如www.q</em>.com或www.qq.*的为无效配置。</allow-access-fromdomain="*"></p>
 <blockquote>
-<p>Tips:当domain被指定为IP地址时，只接受使用该IP作为网址来访问的来源请求[此时ip地址也就相当于一个域名而已]，如domain被设置为192.168.1.100时，使用<a href="http://192.168.1.100/flash.swf" target="_blank" rel="external">http://192.168.1.100/flash.swf</a> 来请求该域内容是允许的，但是使用指向192.168.1.100的域名www.a.com来访问时[<a href="http://www.a.com/flash.swf]将会被拒绝，因为flash不懂得dns解析" target="_blank" rel="external">http://www.a.com/flash.swf]将会被拒绝，因为flash不懂得dns解析</a> </p>
+<p>Tips:当domain被指定为IP地址时，只接受使用该IP作为网址来访问的来源请求[此时ip地址也就相当于一个域名而已]，如domain被设置为192.168.1.101时，使用<a href="http://192.168.1.101/flash.swf" target="_blank" rel="external">http://192.168.1.101/flash.swf</a> 来请求该域内容是允许的，但是使用指向192.168.1.100的域名www.xx.com来访问时[<a href="http://www.xx.com/flash.swf]将会被拒绝，因为flash不懂得dns解析" target="_blank" rel="external">http://www.xx.com/flash.swf]将会被拒绝，因为flash不懂得dns解析</a> </p>
 </blockquote>
 <p><em>to-ports：该属性值表明允许访问读取本域内容的socket连接端口范围。可使用to-ports=”1100,1120-1125”这样的形式来限定端口范围，也可使用通配符（</em>）表示允许所有端口。<br>*secure:该属性值指明信息是否经加密传输。当crossdomain.xml文件使用https加载时，secure默认设为true。此时将不允许flash传输非https加密内容。若手工设置为false则允许flash传输非https加密内容。(adobe官方建议不使用false) </p>
 <p>下面的例子配置为允许所有qq.com下的所有二级域名[包括qq.com本身]通过https访问本域中的内容。</p>
@@ -230,9 +230,11 @@ allow-http-request-headers-from
 &lt;/allow-access-from-identity&gt;
 </code></pre><p>4&gt;allow-http-request-headers-from：此节点授权第三方域flash向本域发送用户定义的http头。</p>
 <p>allow-access-from节点授权第三域提取本域中的数据，而 allow-http-request-headers-from 节点授权第三方域将数据以http头的形式发送到本域中。[简而言之，allow-access-from是控制读取权限，allow-http-request-headers-from是控制以http头形式的写入权限]<br>allow-http-request-headers-from包含三个属性：</p>
-<p>*domain：作用及参数格式与allow-access-from节点中的domain类似。</p>
-<p><em>headers：以逗号隔开的列表，表明允许发送的http头。可用通配符（</em>）表示全部 http头。</p>
-<p>*secure：作用及用法与allow-access-from节点中的secure相同。</p>
+<ul>
+<li>domain：作用及参数格式与allow-access-from节点中的domain类似。</li>
+<li>headers：以逗号隔开的列表，表明允许发送的http头。可用通配符（*）表示全部 http头。</li>
+<li>secure：作用及用法与allow-access-from节点中的secure相同。</li>
+</ul>
 <p>在下面的示例中，任何域都可以向当前域发送 SOAPAction 标头：</p>
 <pre><code>&lt;cross-domain-policy&gt; 
 
@@ -279,8 +281,8 @@ allow-http-request-headers-from
     </a>
   
   
-    <a href="/2012/02/15/2012-02-15-Canvas2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML5 Canvas(画布)教程 – 图像处理</div>
+    <a href="/2012/02/15/2012-02-15-tanchishe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Html5学习笔记——canvas贪吃蛇</div>
       <i class="icon-circle-right"></i>
     </a>
   
